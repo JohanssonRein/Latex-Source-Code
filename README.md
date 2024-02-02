@@ -1,2 +1,2 @@
 # Latex-Source-Code
-This is the starter code for all my latex documents.
+This is the source code for all my latex documents.

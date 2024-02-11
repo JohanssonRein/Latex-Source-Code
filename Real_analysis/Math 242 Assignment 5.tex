@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace, lipsum}
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+
+\usepackage{esdiff}
+\usepackage{fixdif}
+
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 242 Written Assignment 5}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+
+
+\begin{document}
+\doublespacing
+
+\section*{Question 1 (a)}
+
+\begin{proof}
+    To show that $\displaystyle{ \lim \left( \frac{n^2+n}{2n^2-3}
+    \right) = \frac{1}{2}}$, we need to show that $\forall 
+    \epsilon > 0$, $\exists N \in \mathbb{N} $, s.t 
+    $\forall n \geq N$ : $ \displaystyle{\vert a_n -
+    L \vert < \epsilon }$. 
+    
+    \vspace*{0.3cm}
+    In this case, 
+    $\displaystyle{(a_n) = \frac{n^2+2n}{2n^2-3}}$,
+    $\displaystyle{L = \frac{1}{2}}$.
+
+    
+    \vspace*{0.3cm}
+    $ \displaystyle{ \vert a_n - L \vert = 
+    \bigg \vert \frac{n^2+n}{2n^2-3} - \frac{1}{2} \bigg \vert = 
+    \bigg \vert \frac{2n+3}{4n^2-6} \bigg \vert }$.
+    When $n$ is enfficently large, especially, say $n \geq 3$,
+    then we 
+    
+    \vspace*{0.3cm}
+    have $\displaystyle{ \bigg \vert \frac{2n+3}{4n^2-6} 
+    \bigg \vert < \bigg\vert \frac{2n+3}{4n^2-9} \bigg\vert
+    = \frac{2n+3}{4n^2-9}}$, because $2n+3 > 0$ and $
+    4n^2 - 9 > 0$ in this case.
+
+    \vspace*{0.3cm}
+    We may observe that $\displaystyle{\frac{2n+3}{4n^2-9} = \frac{2n+3}
+    {(2n+3)(2n-3)} = \frac{1}{2n-3}}$. This operation is totally
+    doable because $2n-3>0$ and $2n+3>0$.
+
+    \vspace*{0.3cm}
+    Then, if we let $\displaystyle{\frac{1}{2n-3} < \epsilon}$,
+    solve for $n$ we get $\displaystyle{ n >
+    \frac{1}{\epsilon} + 3}$. Then, by our previous steps,
+    we say that
+
+    \[ \displaystyle{
+        \vert a_n - L \vert < \frac{1}{2n-3} < \epsilon \hspace*{0.3cm}
+        \text{for all } \hspace*{0.2cm} n > \frac{1}{\epsilon}+3
+    }\]
+
+    If we let $\displaystyle{N > \frac{1}{\epsilon}+3}$, then
+    we conclude that $\forall n \geq N$, we have 
+    $ \vert a_n - L \vert < \epsilon$, which means
+
+    \[ \displaystyle{\lim \left( \frac{n^2+n}{2n^2-3} \right)
+    = \frac{1}{2}} \]
+
+
+\end{proof}
+
+\newpage
+\section*{Question 2}
+
+\begin{proof}
+By definition, if 
+$\lim(x_n) = x$, it means 
+$\exists N \in \mathbb{N}$, $\forall 
+x \geq N$, $\vert x_n - x \vert < \epsilon$, for all
+$\epsilon > 0$.
+\begin{align*}
+    &\Longrightarrow \vert x_n - x \vert < \epsilon \\
+    &\Longrightarrow -\epsilon < x_n - x < \epsilon \\
+    &\Longrightarrow -\epsilon+x < x_n < \epsilon+ x
+\end{align*}
+If we choose $\displaystyle{\epsilon = \frac{1}{2}x}$, then we have
+$ \displaystyle{\frac{1}{2}x < x_n < \frac{3}{2}x}$, for all
+$ x > N$ for some $N$. In this case, it is the same as saying
+$\displaystyle{\frac{1}{2}x < x_n < 2x}$, because 
+$x>0$. So we have proved the
+inequility.
+
+
+
+
+\end{proof}
+
+
+
+\end{document}

@@ -1,0 +1,169 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace, lipsum}
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+\title{Linear Algebra}
+\author{Review Material 1}
+\date{2023 6}
+\usepackage{esdiff}
+\usepackage{fixdif}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\lcm}{lcm}
+
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 242 Written Assignment 7}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+
+
+\begin{document}
+\doublespacing
+
+\section*{Question 1}
+
+The sequence $(x_n)$ which satisifies the properties 
+as mentioned is: 
+\[ x_n = n + \frac{1}{n} \]
+
+\begin{center}
+    $\textbf{Now let's prove it}$
+\end{center}
+
+\begin{proof}
+    We will show that $\forall \epsilon > 0$, $\exists N
+    \in \mathbb{N}$, s.t $\forall n \geq N$,
+    $\vert x_{n+1} - x_n \vert < \epsilon$.
+
+    \vspace*{0.4cm}
+    It is not hard to observe that $\displaystyle{
+    \vert x_{n+1} - x_n \vert = \Bigg| \left( n +1+
+    \frac{1}{n+1} \right) - \left(n + \frac{1}{n}\right)}
+    \Bigg| = \Bigg| \frac{1}{n+1} - \frac{1}{n} + 1 \Bigg|$.
+
+    \vspace*{0.5cm}
+    Then, we can do further simplification,
+    $\displaystyle{\vert x_{n+1} - x_n \vert = \Bigg| \frac{-1}{n(n+1)}
+    + 1 \Bigg| } $. By $\textit{Triangle Inequality}$,
+    
+    \begin{align*}
+    \vert x_{n+1} - x_n \vert &\leq 
+    \Bigg| \frac{-1}{n(n+1)}  \Bigg|+  \vert 1 \vert \\
+    &= \displaystyle{\frac{1}{n(n+1)} + 1}
+    \end{align*}
+
+    Since $n$ is always a positive integer, So
+    $n+1 > n$, conversely $\displaystyle{\frac{1}{n+1}
+    < \frac{1}{n}}$. So we get
+    \[ \vert x_{n+1} - x_n \vert <
+    \frac{1}{n^2} + 1\]
+
+    In this case, if we slove for $\displaystyle{
+    \frac{1}{n^2} + 1 < \delta}$, where $\delta >1$,
+    it's the same as sloving $\displaystyle\frac{1}{n^2} <
+    \epsilon$. where $\epsilon > 0$.
+
+    So, we get when $n \geq \displaystyle{
+    \sqrt{\frac{1}{\epsilon}}}$, it is always true that
+    $\displaystyle{\vert x_{n+1} - x_{n} \vert 
+    < \frac{1}{n^2} + 1 < \epsilon + 1}$. 
+
+    \vspace*{0.3cm}
+    $\textbf{However}$, as we can see, $(x_n)$ does
+    not converge, because it is a strictly increasing
+    sequence when $n \geq 1$, and $\lim(x_n)$ does not
+    exist. (infinity)
+
+    \vspace*{0.6cm}
+    $\textbf{So, according to the judgements above,
+    this sequence satisities those properties}$.
+
+\end{proof}
+
+\newpage
+\section*{Question 2}
+
+\subsection*{Part (a) :}
+\begin{proof}
+Since we know that $x_1 > 0$, then the base case is 
+automatically correct.Now we assume that the statement
+is true for a fixed integer $n$. Then we will prove that
+it still holds for $n+1$. Since we know $x_n >0$ by our
+assumption, and according to the definition of this
+sequence, $x_{n+1} = \displaystyle{\frac{1}{2 + x_n}}$,
+which means that $x_{n+1}$ must also be positive. So
+the inductive step is also proved. Hence, 
+$\textit{WLOG}$, we say that $x_n > 0$ for all $\mathbb{N}$.
+\end{proof}
+
+\subsection*{Part (b) :}
+\begin{proof}
+To show tht $(x_n)$ is contractive, we need to show that
+$\forall n \in \mathbb{N}$, $\exists c \in (0,1)$, s.t
+\[ \vert x_{n+2} - x_{n+1} \vert \leq c\cdot
+\vert x_{n+1} - x_n \vert \]
+
+By the formula $x_{n+1} = \displaystyle{\frac{1}{2+x_n}}$,
+we get $\vert x_{n+2} - x_{n+1} \vert = 
+\Bigg| \displaystyle{\frac{1}{2+x_{n+1}} - \frac{1}{2+x_n}}
+\Bigg| $. Then, by further simplification, we get
+
+\[\vert x_{n+2} - x_{n+1} \vert = 
+\Bigg| \displaystyle{\frac{x_n - x_{n+1}}{(2+x_{n+1})(2+x_n)}
+\Bigg| = \frac{1}{\vert (2+x_{n+1})(2+x_n)\vert } \cdot
+\big| x_{n+1} - x_n \big| }\]
+
+We see that the term $ 
+\Bigg| \displaystyle{\frac{1}{(2+x_{n+1})(2+x_n)}
+\Bigg|}$ is always between $0$ and $1$ by the property, and
+it is constant befined by a given sequence, also note that
+$x_n$ is always positive for any $n \in \mathbb{N}$, which
+means $\displaystyle{\frac{1}{(2+x_{n+1})(2+x_n)}} < 
+\frac{1}{2\times 2} < 1$. So by the property, we conclude that
+
+\[ \vert x_{n+2} - x_{n+1} \vert \leq c\cdot
+\vert x_{n+1} - x_n \vert \]
+\end{proof}
+
+\subsection*{Part (c) :}
+\begin{proof}
+By the property, we know that $\lim(x_{n+1}) = \lim(x_n)$,
+then if we use the relations between $x_{n+1}$ and $x_n$, 
+we get 
+
+\[ \lim(x_{n+1}) = \lim(\frac{1}{2+x_n})\]
+
+Then by limit laws, we can simplify as:
+\[ \lim(x_{n+1}) = \frac{1}{2 + \lim(x_n)} \]
+
+As we mentioned, $\lim(x_{n+1}) = \lim(x_n)$, so we may
+let $\lim(x_n) = u$, then solve for the equation
+\[ u = \frac{1}{2+u} \]
+
+Then we get $u = -1 \pm \sqrt{2}$, but note that by definition,
+$x_n$ is always positive, so the only solution inserting
+$u = -1 + \sqrt{2}$, i.e $\lim(x_n) = -1 + \sqrt{2}$.
+\end{proof}
+
+
+
+
+
+\end{document}

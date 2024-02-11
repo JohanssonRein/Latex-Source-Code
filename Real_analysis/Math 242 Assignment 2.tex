@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace, lipsum}
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+\title{Linear Algebra}
+\author{Review Material 1}
+\date{2023 6}
+\usepackage{esdiff}
+\usepackage{fixdif}
+
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 242 Written Assignment 2}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+
+
+\begin{document}
+\doublespacing
+
+\section*{Problem 2(b) (i)}
+
+\begin{proof}
+    In order to prove that $ f^{-1}(A \bigcap B) = f^{-1}
+    (A) \bigcap f^{-1}(B)$, we first show that
+    $ L.H.S \subseteq R.H.S $.
+
+    \subsection*{(1)}
+    $\bullet$ $L.H.S \subseteq R.H.S $
+    
+
+    Suppose $ x \in f^{-1}(A \bigcap B)$, by definition, then
+    $f(x) \in A \bigcap B $, which is 
+    $ f(x) \in A \land f(x) \in B $, that is
+     $ x \in f^{-1}(A) \land x \in f^{-1}(B)$, the same as
+     $ x \in f^{-1}(A) \bigcap x \in f^{-1}(B) $.
+     So $L.H.S \subseteq R.H.S $
+
+    
+    \subsection*{(2)}
+    $\bullet$ $R.H.S \subseteq L.H.S $
+
+
+    Suppose $ x \in f^{-1}(A) \bigcap f^{-1}(B)$, by 
+     definition, then 
+    $ x \in f^{-1}(A) \land x \in f^{-1}(B)$, then it is
+    the same as
+    $ f(x) \in A \land f(x) \in B$, so 
+    $ f(x) \in A \bigcap B $, in this case,
+    $ x \in f^{-1}(A \bigcap B)$. So $R.H.S \subseteq L.H.S $
+
+    \vspace*{2cm}
+    \textbf{Based on the conclusions on (1) and (2)},
+    $ f^{-1}(A \bigcap B) = f^{-1}
+    (A) \bigcap f^{-1}(B)$.
+\end{proof}
+
+\newpage
+\section*{Problem 5}
+
+\begin{proof}
+    Notice that $ x = x + y-y, y=y+x-x$, So
+    \begin{align}
+         \vert x + x \vert &= \vert x-y+x+y \vert \\
+          2\vert x\vert & \leq \vert x-y \vert + \vert x+y \vert \hspace*{0.4cm} \textit{By triangle inequality}
+    \end{align}
+
+    We can do the same operation on $y$
+    \begin{align}
+        \vert y + y \vert &= \vert y-x+y+x \vert \\
+         2\vert y\vert & \leq \vert y-x \vert + \vert y+x \vert \hspace*{0.4cm} \textit{By triangle inequality}
+   \end{align}
+
+   Then, by the properties of absolute values, we know that
+   $ \vert x-y \vert = \vert y-x \vert $
+
+   We can do (1)+(2), then we will get
+
+   \[ 2\vert x \vert + 2\vert y \vert \leq
+   2\vert x-y \vert + 2\vert x+y \vert \]
+
+   By substracting 2 on both sides, we get
+
+   \[ \vert x \vert + \vert y \vert \leq
+   \vert x-y \vert + \vert x+y \vert ,\hspace*{0.3cm}
+   \text{which is exactly what we need to prove.}\]
+
+
+        
+
+
+\end{proof}
+
+
+
+
+
+\end{document}

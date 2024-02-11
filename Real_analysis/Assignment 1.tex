@@ -1,0 +1,833 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+
+\usepackage{esdiff}
+\usepackage{fixdif}
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 242 Written Assignment 1}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+\begin{document}
+
+
+\section*{Problem 1}
+
+\subsection*{1.1 part (a)}
+
+\begin{proof}
+    
+    \vspace*{0.3cm}
+    In order to prove $ \forall x,y \in \mathbf{R}: 
+    y^3 - x^3 = (y-x)(x^2 + xy + y^2)$,
+
+    \vspace*{0.5cm}
+    \hspace*{1.2cm}
+    We can expand the $R.H.S$ of the equation,that is
+    \begin{align*}
+        (y-x)(x^2+xy+y^2) &= yx^2+xy^2+y^3-x^3-x^2y-xy^2 \\
+        \bullet & = y^3-x^3+(yx^2-yx^2)+(xy^2-xy^2) \\
+        & = y^3-x^3
+    \end{align*}
+
+    \hspace*{1.2cm}Those two parts got cancelled in step $\bullet$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So for the right hand side, we get $R.H.S = y^3-x^3$
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Compared to the origional equation, we found that
+
+    \[(y-x)(x^2+xy+y^2) = y^3-x^3\]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    That is, $L.H.S = R.H.S$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, we have proved that $y^3 - x^3 = (y-x)(x^2 + xy + y^2)$.
+        
+    
+
+\end{proof}
+
+\subsection*{1.2 part (b)}
+
+\vspace{0.3cm}
+
+\begin{proof}
+    
+    In order to prove $ \forall x, y \in \mathbf{R} : x^2 +xy + y^2 \geq 0$,
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Using direct proof, we firstly noticed that:
+
+    \[ (x+y)^2 \geq 0 : \forall x,y \in \mathbf{R}\]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    By expanding the $L.H.S$ of the above,we get :
+
+    \[ x^2 + 2xy + y^2 \geq 0 \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Then, we substract both $L.H.S$ and $R.H.S$ by $xy$, and still holds for:
+
+    \[ x^2 + xy + y^2 \geq -xy \hspace*{2cm} \blacktriangle \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Thus, there are three cases for this:
+
+    \vspace*{0.5cm}
+    \hspace*{2.5cm}
+    $\bullet$ Case 1: If $x,y$ has the same sign, (i.e $xy > 0$ ) then
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    From the $L.H.S$ of $\blacktriangle$, $x^2 > 0;  y^2 > 0;  xy>0$
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    So it is obvious that $x^2 + xy +y^2 > 0$
+
+    \newpage
+    \hspace*{2.5cm}
+    $\bullet$ Case 2: If $x,y$ has the different sign, (i.e $xy < 0$ ) then
+
+    
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    It is obvious that $-xy > 0$ instead
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    Then from the $R.H.S$ of $\blacktriangle$, we see that $R.H.S > 0$
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    Since the inequality says that $L.H.S > R.H.S$
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    So it demonstrates that $x^2 + xy + y^2 > -xy > 0$
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    Which is $x^2 + xy + y^2 > 0$
+
+
+    \vspace*{0.5cm}
+    \hspace*{2.5cm}
+    $\bullet$ Case 3: If $xy = 0$ then
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    For cases like $x=0$ $\mathbf{or}$ $y=0$
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    It is clear that from $\blacktriangle$, $L.H.S >0$ and $R.H.S =0$, the inequality holds
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    For a special case, where $x=0$ $\mathbf{and}$ $y=0$
+
+
+    \vspace*{0.3cm}
+    \hspace*{2.9cm}
+    In this case only, from $\blacktriangle$ we can apply that $L.H.S = R.H.S = 0$
+
+
+    \vspace*{0.5cm}
+    \hspace*{1.2cm}
+    In conclusion, we can say that $\forall x,y \in \mathbf{R}, x^2 + xy + y^2 \geq 0$
+
+    \vspace*{0.5cm}
+    \hspace*{1.2cm}
+    $ x^2 + xy + y^2 = 0 $ \textit{if and only if} $x = 0, y = 0$
+
+
+\end{proof}
+
+
+\subsection*{1.3 part (c)}
+
+\vspace*{0.3cm}
+\begin{proof}
+
+    In order to prove $ f : \mathbf{R} \longrightarrow \mathbf{R},
+     x \mapsto x^3 $ is strictly increasing, we need to show
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $ \forall x,y \in \mathbf{R}$, if $x>y$, then $f(x) > f(y)$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    That is, prove $x^3 > y^3$ if $x > y$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    By direct proof, if $x>y$, then we can conclude that $x-y > 0$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    As shown in part (b), $\forall x,y \in \mathbf{R}, x^2 + xy + y^2 \geq 0 $
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Since $x \neq y$, which means $x,y$ cannot be all zero
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So the statement $ x^2 + xy + y^2 >0$ is true for this case
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So $ (x^2 + xy + y^2)(x-y) > 0$ is also true
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    By expanding the formula above, we get $ x^3 - yx^2+x^2y-xy^2+xy^2-y^3 > 0 $
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    That is, $ x^3 - y^3 > 0 $, which is exactly what we need to prove
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, $ f : \mathbf{R} \longrightarrow \mathbf{R},
+     x \mapsto x^3 $ is strictly increasing.
+
+\end{proof}
+
+\newpage
+\section*{Problem 2 and Problem 3 are omitted}
+
+
+
+
+\newpage
+\section*{Problem 4}
+
+\subsection*{4.1 part (a)}
+
+\begin{proof}
+    In order to show that $\sqrt{6}$ is irrational,
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Using proof by contradiction, assume that $\sqrt{6}$ is rational, so it can be written as
+
+    
+    \[ \sqrt{6} = \frac{a}{b}; \hspace*{0.3cm}  a,b \in \mathbb{N};
+    \hspace*{0.3cm}   b \neq 0;  \hspace*{0.3cm}  \gcd(a,b) = 1 \]
+    \begin{align*}
+        \Longrightarrow 6 & = \frac{a^2}{b^2} \\
+        \Longrightarrow 6b^2 & = a^2
+    \end{align*}
+
+    \hspace*{1.2cm}
+    Since $6b^2$ must be an even number, it applies that $a^2$ is also an even number
+
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, $a$ is an even number, also $a$ is divisible by 6, meaning that
+
+    \begin{align*}
+        \exists c \in \mathbb{N} : a  & = 6c \\
+        \Longrightarrow 6b^2  & = 36c^2 \\
+        \Longrightarrow b^2 & = 6c^2
+    \end{align*}
+
+    \hspace*{1.2cm}
+    Since $6c^2$ must be an even number, it applies that $b^2$ is also an even number
+
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, $b$ is an even number
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    If both $a,b$ are even, meaning that $\gcd(a,b) \geq 2 $, thus
+    $ \gcd(a,b) \neq 1$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Which leads to a contradiction. So $\sqrt{6}$ must be irrational.
+
+    
+\end{proof}
+
+\subsection*{4.2 part (b)}
+
+\begin{proof}
+    In order to prove that $\sqrt 2 + \sqrt 3 $ is irrational,
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Using proof by contradiction, assume that both$\sqrt 2, \sqrt 3 $ are rational
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So $\sqrt{2} + \sqrt 3$  is rational
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    By taking the square, $ (\sqrt 2 + \sqrt 3)^2$ is also rational
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    By expanding the square, $ 2 + 3 + \sqrt{2 \times 3} $ is also rational
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Which is, $ 5 + \sqrt 6 $ is rational
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Since 5 is rational, and $\sqrt 6$ is irrational (shown in part a)
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Then $5+\sqrt 6$ can not be rational, that is $5+\sqrt 6$ is irrational. 
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    That leads to a contradiction, so $\sqrt 2 + \sqrt 3$ is irrational.
+
+\end{proof}
+
+\newpage
+\section*{Problem 5}
+
+\subsection*{5.1 part (a)}
+
+\begin{proof}
+    In order to prove 
+    
+    \[ \underbrace{\sqrt{2+\sqrt{2+\sqrt{2+\cdots + \sqrt{2}}}} }
+    _\text{n nested square roots} = 2\cos
+    \left(  \frac{\pi}{2^{n+1}}  \right) \]
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    By induction, we know that the range of n is $ n \in \mathbf{N}$
+
+    \vspace*{0.3cm}
+    
+    $\bullet$ \textbf{The Base Case :}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $\blacktriangle$  When $n=1$ 
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    From the $L.H.S$ of the equation $\clubsuit$, we know $L.H.S = \sqrt 2$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Also, $R.H.S = 2\cos \left( \frac{\pi}{4} \right) = 2\times \frac{\sqrt 2}{2} = \sqrt 2 $
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, $L.H.S = R.H.S$ for base case, which is true.
+
+    \vspace*{0.3cm}
+    
+    $\bullet$ \textbf{The Inductive Case :}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $\blacktriangle$ Suppose $\clubsuit$ is true for one $n \in \mathbb{N}$, that is
+
+    \[ \underbrace{\sqrt{2+\sqrt{2+\sqrt{2+\cdots + \sqrt{2}}}} }
+    _\text{n nested square roots} = 2\cos
+    \left(  \frac{\pi}{2^{n+1}}  \right) \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $\blacktriangle$ Then we need to prove it also holds for $n+1$, which is to prove
+
+    \[ \underbrace{\sqrt{2+\sqrt{2+\sqrt{2+\cdots + \sqrt{2 + \sqrt{2}}}}} }
+    _\text{n+1 nested square roots} = 2\cos
+    \left(  \frac{\pi}{2^{n+2}}  \right) \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Assume that 
+
+    \[  \underbrace{\sqrt{2+\sqrt{2+\sqrt{2+\cdots + \sqrt{2 }}}}}_\text{
+        n nested sqyare roots} = t
+    \] 
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, we only need to prove that
+
+    \[ \sqrt{2 + t} = 2\cos{\left( \frac{\pi}{2^{n+2}} \right) } \]
+
+    \newpage
+    
+    \begin{align*}
+        \sqrt{2 + t}  & = 2\cos{\left( \frac{\pi}{2^{n+2}} \right) } \\
+        & = 2 \cos{\left( \frac{\pi}{2^{n+1 }} \times \frac{1}{2}  \right)} \\
+        2 + t & = 4 \cos^{2}{\left( \frac{\pi}{2^{n+1}} \times \frac{1}{2} \right)} \\
+        2 + t & = 4 \left(  \frac{1}{2} + \frac{1}{2} \cos{\left( \frac{\pi}{2^{n+1}} \right)} \right) \\
+        2 + t & = 2 + 2\cos{\left( \frac{\pi}{2^{n+1}}\right)} \\
+        t & = 2\cos{\left( \frac{\pi}{2^{n+1}}\right)} \hspace*{2cm} \blacklozenge
+    \end{align*}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Since 
+
+    \[  \underbrace{\sqrt{2+\sqrt{2+\sqrt{2+\cdots + \sqrt{2 }}}}}_\text{
+        n nested sqyare roots} = t
+    \] 
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    According to the bease case, we know that the above equation $\blacklozenge$ is correct
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    In this case, we can also say that it is correct for $n+1$
+
+    \vspace*{0.3cm}
+    $\bullet$ \textbf{In conclusion}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, according to the base case and inductive case, it is correct for all $n \in \mathbb{N}$ such that
+
+    \[ \underbrace{\sqrt{2+\sqrt{2+\sqrt{2+\cdots + \sqrt{2}}}} }
+    _\text{n nested square roots} = 2\cos
+    \left(  \frac{\pi}{2^{n+1}}  \right) \]
+
+\end{proof}
+
+\newpage
+
+\section*{Problem 6 }
+
+\subsection*{6.1 part (a) }
+
+\begin{proof}
+
+    In order to prove
+
+    \[ \sum_{k=0}^{n} 
+    \begin{pmatrix}
+        n \\
+        k
+    \end{pmatrix} = 2^n \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    by induction, we know the range for $n$ is $ n \in \mathbb{N}_{0} $
+
+    \vspace*{0.3cm}
+    $\bullet$ \textbf{The Base Case}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    when $n=0$, it is clear that $L.H.S = R.H.S = 1$, which is correct
+
+    \vspace*{0.3cm}
+    $\bullet$ \textbf{The Inductive Case}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    We suppose the equation is correct for one $ n \in \mathbb{N}_{0} $, such that
+
+    \[ \sum_{k=0}^{n} 
+    \begin{pmatrix}
+        n \\
+        k
+    \end{pmatrix} = 2^n \]
+
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Then we need to show that it is also correct for
+
+    \[ \sum_{k=0}^{n+1} 
+    \begin{pmatrix}
+        n + 1\\
+        k
+    \end{pmatrix} = 2^{n+1}  \hspace*{2cm} \blacktriangle\]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    By expanding the $R.H.S$ of the above equation, we get
+
+    \[ R.H.S = 2 \times \left[ \begin{pmatrix}
+                   n  \\
+                   0
+    \end{pmatrix}  + \begin{pmatrix}
+                         n \\
+                         1
+                     
+                     \end{pmatrix} + \cdots + \begin{pmatrix}
+                                                  n \\
+                                                  n 
+
+                     \end{pmatrix} \right] \hspace*{2cm} \blacklozenge \]
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+According to the proporty
+
+\[ \begin{pmatrix}
+       n+1 \\
+       k
+\end{pmatrix} = \begin{pmatrix}
+                    n \\
+                    k
+\end{pmatrix} + \begin{pmatrix}
+                    n \\
+                    k-1
+\end{pmatrix} : n \in \mathbb{N}_0 ; 1 \leq k \leq n \]
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+In this case, 
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+$\bullet \textbf{If n is even, then}$
+
+\[ R.H.S = 2 \times \left[ \underbrace{\begin{pmatrix}
+    n+1  \\
+    1
+\end{pmatrix}  + \begin{pmatrix}
+          n+1 \\
+          3
+      
+      \end{pmatrix} + \cdots + \begin{pmatrix}
+                                   n+1 \\
+                                   n-1 
+
+      \end{pmatrix} }_\text{Align the first n -1 terms into pairs and apply the proporty}
+      + \begin{pmatrix}
+                          n \\
+                          n
+      \end{pmatrix} \right] \hspace*{1cm} \textit{Equation(a)} \]
+
+\[ R.H.S = 2 \times \left[ \underbrace{\begin{pmatrix}
+        n+1  \\
+        2
+    \end{pmatrix}  + \begin{pmatrix}
+              n+1 \\
+              4
+          
+          \end{pmatrix} + \cdots + \begin{pmatrix}
+                                       n+1 \\
+                                       n 
+    
+          \end{pmatrix} }_\text{Align the first n -1 terms into pairs and apply the proporty}
+          + \begin{pmatrix}
+                              n \\
+                              0
+          \end{pmatrix} \right] \hspace*{1cm} \textit{Equation(b)} \]
+
+    \newpage
+    \hspace*{1.2cm}
+    Since we know from the proporty that
+    $\begin{pmatrix}
+        n \\
+        n
+    \end{pmatrix} = \begin{pmatrix}
+        n \\
+        0
+    \end{pmatrix} = 1 $
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So from $\textit{Equation(a)},\textit{Equation(b)}$, we conclude that
+
+    \[ \begin{pmatrix}
+        n+1  \\
+        1
+    \end{pmatrix}  + \begin{pmatrix}
+              n+1 \\
+              3
+          
+          \end{pmatrix} + \cdots + \begin{pmatrix}
+                                       n+1 \\
+                                       n-1 
+    
+          \end{pmatrix} 
+            =  \begin{pmatrix}
+            n+1  \\
+            2
+        \end{pmatrix}  + \begin{pmatrix}
+                  n+1 \\
+                  4
+              
+              \end{pmatrix} + \cdots + \begin{pmatrix}
+                                           n+1 \\
+                                           n 
+        
+             
+              \end{pmatrix} \]
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Now apply $\textit{Equation(a)} + \textit{Equation(b)} $, we get
+
+    \[ R.H.S = \begin{pmatrix}
+        n+1  \\
+        1
+    \end{pmatrix}  + \begin{pmatrix}
+              n+1 \\
+              2
+          
+          \end{pmatrix} +  \begin{pmatrix}
+                                       n+1 \\
+                                       3 
+    
+          \end{pmatrix} 
+           + \cdots + \begin{pmatrix}
+                  n+1 \\
+                  n-1
+              
+              \end{pmatrix} + \begin{pmatrix}
+                                           n+1 \\
+                                           n 
+        
+             
+              \end{pmatrix} + \begin{pmatrix}
+                n \\
+                0
+              \end{pmatrix} + \begin{pmatrix}
+                n \\
+                n
+              \end{pmatrix}
+              \]
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Notice that for $n+1$, it also holds that $\begin{pmatrix}
+        n+1 \\
+        n+1
+    \end{pmatrix} = \begin{pmatrix}
+        n+1 \\
+        0
+    \end{pmatrix} = 1 $
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    In this case,
+
+    
+       \[ R.H.S   = \begin{pmatrix}
+            n+1  \\
+            1
+        \end{pmatrix}  + \begin{pmatrix}
+                  n+1 \\
+                  2
+              
+              \end{pmatrix} +  \begin{pmatrix}
+                                           n+1 \\
+                                           3 
+        
+              \end{pmatrix} 
+               + \cdots + \begin{pmatrix}
+                      n+1 \\
+                      n-1
+                  
+                  \end{pmatrix} + \begin{pmatrix}
+                                               n+1 \\
+                                               n 
+            
+                 
+                  \end{pmatrix} + \begin{pmatrix}
+                    n+1 \\
+                    0
+                  \end{pmatrix} + \begin{pmatrix}
+                    n+1 \\
+                    n+1
+                  \end{pmatrix} \\ \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Now by the proporty, it is pretty clear that
+
+    \[ R.H.S = \sum_{k=0}^{n+1} \begin{pmatrix}
+        n+1 \\
+        k
+    \end{pmatrix} \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Compare to equation $\blacktriangle$, we find that $L.H.S = R.H.S$, that is what we need to prove
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So the equality is true for even $n$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $\bullet \textbf{If n is odd, then}$
+
+    \[ R.H.S = 2 \times \left[ \begin{pmatrix}
+        n+1  \\
+        1
+    \end{pmatrix}  + \begin{pmatrix}
+              n+1 \\
+              3
+          
+          \end{pmatrix} + \cdots + \begin{pmatrix}
+                                       n+1 \\
+                                       n-2 
+    
+          \end{pmatrix} 
+          + \begin{pmatrix}
+                              n \\
+                              n
+          \end{pmatrix} \right]  \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Since we know that from even cases,
+
+    \[ \begin{pmatrix}
+        n+1  \\
+        1
+    \end{pmatrix}  + \begin{pmatrix}
+              n+1 \\
+              3
+          
+          \end{pmatrix} + \cdots + \begin{pmatrix}
+                                       n+1 \\
+                                       n-1 
+    
+          \end{pmatrix} 
+            =  \begin{pmatrix}
+            n+1  \\
+            2
+        \end{pmatrix}  + \begin{pmatrix}
+                  n+1 \\
+                  4
+              
+              \end{pmatrix} + \cdots + \begin{pmatrix}
+                                           n+1 \\
+                                           n 
+        
+             
+              \end{pmatrix} \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, it is obvious that
+
+    \[ R.H.S   = \begin{pmatrix}
+        n+1  \\
+        1
+    \end{pmatrix}  + \begin{pmatrix}
+              n+1 \\
+              2
+          
+          \end{pmatrix} +  \begin{pmatrix}
+                                       n+1 \\
+                                       3 
+    
+          \end{pmatrix} 
+           + \cdots + \begin{pmatrix}
+                  n+1 \\
+                  n-1
+              
+              \end{pmatrix} + \begin{pmatrix}
+                                           n+1 \\
+                                           n 
+        
+             
+              \end{pmatrix} + \begin{pmatrix}
+                n+1 \\
+                0
+              \end{pmatrix} + \begin{pmatrix}
+                n+1 \\
+                n+1
+              \end{pmatrix} \\ \]
+
+    \[ R.H.S = \sum_{k=0}^{n+1} \begin{pmatrix}
+                n+1 \\
+                k
+            \end{pmatrix} \]
+
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Then back to equality $\blacktriangle$,it is clear that $L.H.S = R.H.S$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So the equality is true for odd $n$
+
+    
+    \vspace*{0.4cm}
+    $\bullet \textbf{In Conclusion}$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So according to the base case and inductive case, $\forall n \in \mathbb{N}_{0} , 1 \leq k \leq n$
+
+    \[ \sum_{k=0}^{n} 
+    \begin{pmatrix}
+        n \\
+        k
+    \end{pmatrix} = 2^n \hspace*{0.3cm} \text{is true. }\]
+
+
+    
+
+        
+    
+
+
+
+    
+              
+
+    
+    
+
+
+              
+
+\end{proof}
+
+
+
+
+
+
+\end{document}

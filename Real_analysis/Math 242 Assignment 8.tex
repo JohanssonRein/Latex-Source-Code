@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace, lipsum}
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+\title{Linear Algebra}
+\author{Review Material 1}
+\date{2023 6}
+\usepackage{esdiff}
+\usepackage{fixdif}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\lcm}{lcm}
+
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 242 Written Assignment 8}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+
+
+\begin{document}
+\doublespacing
+
+\section*{Question 1}
+
+
+Assume that the sequence \( a_n \) converges to a limit \( L \), and the sequence \( b_n \) diverges. We want to show that the sequence \( a_n + b_n \) diverges.
+
+By the definition of convergence, for \( a_n \) converging to \( L \), we have that for any positive number \( \epsilon > 0 \), there exists a positive integer \( N_1 \) such that for all \( n > N_1 \), \( |a_n - L| < \epsilon \).
+
+By the definition of divergence of \( b_n \), for any positive number \( M \), there exists a positive integer \( N_2 \) such that there exists some \( n > N_2 \) with \( |b_n| > M \).
+
+Now, consider the sequence \( a_n + b_n \). For this sequence, we want to show that it diverges. Let \( K \) be a positive number. We need to show that there exists a positive integer \( N \) such that for all \( n > N \), \( |a_n + b_n| > K \).
+
+Choose \( \epsilon = K \). By the convergence of \( a_n \), there exists a positive integer \( N_1 \) such that for all \( n > N_1 \), \( |a_n - L| < K \).
+
+Choose \( M = K \). By the divergence of \( b_n \), there exists a positive integer \( N_2 \) such that there exists some \( n > N_2 \) with \( |b_n| > K \).
+
+Now, let \( N = \max(N_1, N_2) \). For all \( n > N \), we have:
+
+\[ |a_n + b_n - (L + 0)| = |a_n - L + b_n| \leq |a_n - L| + |b_n| < K + K = 2K \]
+
+This shows that for all \( n > N \), \( |a_n + b_n| < 2K \). Therefore, the sequence \( a_n + b_n \) does not satisfy the definition of convergence (where the absolute value of the terms gets arbitrarily large), and it diverges.
+
+So, we have shown that if \( a_n \) converges and \( b_n \) diverges, then \( a_n + b_n \) diverges.
+
+
+
+
+\newpage
+\section*{Question 2}
+To prove that the boundary (\(\partial S\)) of a set \(S\) in \(\mathbb{R}\) is closed, we need to show that the complement of \(\partial S\) in \(\mathbb{R}\), denoted as \((\partial S)^c\), is open.
+
+Recall that the boundary of a set \(S\), denoted \(\partial S\), is defined as the set of all points in \(\mathbb{R}\) that are either in the closure of \(S\) but not in the interior of \(S\), or in the closure of the complement of \(S\) but not in the interior of the complement of \(S\).
+
+The complement of \(\partial S\), denoted \((\partial S)^c\), consists of points that are either in the interior of \(S\) or in the interior of the complement of \(S\).
+
+Now, let's proceed with the proof:
+
+Let \(x\) be an arbitrary point in \((\partial S)^c\), which means that \(x\) is either in the interior of \(S\) or in the interior of the complement of \(S\).
+
+Case 1: \(x\) is in the interior of \(S\).
+
+In this case, there exists an open interval \(I\) such that \(x\) belongs to \(I\) and \(I\) is completely contained in \(S\). Since \(x\) is in the interior of \(S\), \(x\) is not on the boundary of \(S\). Therefore, \(x\) is not in \(\partial S\), and \(x\) is in \(S\).
+
+Case 2: \(x\) is in the interior of the complement of \(S\).
+
+In this case, there exists an open interval \(J\) such that \(x\) belongs to \(J\) and \(J\) is completely contained in the complement of \(S\). Since \(x\) is in the interior of the complement of \(S\), \(x\) is not on the boundary of the complement of \(S\). Therefore, \(x\) is not in \(\partial S\), and \(x\) is in the complement of \(S\).
+
+In either case, \(x\) is either in \(S\) or in the complement of \(S\), which means that \(x\) is not on the boundary \(\partial S\). Therefore, \(x\) is an interior point of \((\partial S)^c\).
+
+Since every point in \((\partial S)^c\) is an interior point, \((\partial S)^c\) is open. This implies that \(\partial S\) is closed.
+
+Thus, we have shown that the boundary \(\partial S\) of an arbitrary set \(S\) in \(\mathbb{R}\) is closed.
+
+\end{document}

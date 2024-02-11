@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace, lipsum}
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+\title{Linear Algebra}
+\author{Review Material 1}
+\date{2023 6}
+\usepackage{esdiff}
+\usepackage{fixdif}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\lcm}{lcm}
+
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 242 Written Assignment 6}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+
+
+\begin{document}
+\doublespacing
+
+\section*{Question 1}
+
+\subsection*{Part (a) :}
+\begin{proof}
+By Bernoulli's inequality: $\displaystyle{\left( 
+1 + \frac{1}{\sqrt{n}}\right)^n \geq 1 + n \times
+\frac{1}{\sqrt{n}} = 1 + \sqrt{n} > \sqrt{n}}$.
+So it's true for all $n \in \mathbb{N}$.
+\end{proof}
+
+\subsection*{Part (b) :}
+\begin{proof}
+In order to prove $\displaystyle{\left( 
+1 + \frac{1}{\sqrt{n}} \right)^2 > \sqrt[n]{n}}$,
+first by taking the n-th square on both sides, 
+which is equivalant as proving 
+$\displaystyle{\left( 
+1 + \frac{1}{\sqrt{n}} \right)^{2n} > n}$.
+
+\begin{align*}
+    \left( 
+    1 + \frac{1}{\sqrt{n}} \right)^{2n} &> n \\
+    \left( 1 + \frac{1}{\sqrt{n}}
+    \right)^n \left( 1 + \frac{1}{\sqrt{n}}
+    \right)^n &> n \\
+    & \geq \left( 1 + \sqrt{n} \right) \left( 1 + \sqrt{n} \right) 
+    \hspace*{0.2cm} \textit{By Bernoulli's
+    inequality}\\
+    & = 1 + n + 2\sqrt{n} \\
+    & > n.
+\end{align*}
+\end{proof}
+\subsection*{Part (c) :}
+\begin{proof}
+By definition, we need to show that $\exists N \in
+\mathbb{N}$, such that $\forall n \geq N$,
+$\vert a_n - L \vert < \epsilon$ for all $\epsilon
+> 0$. i.e $ \vert \sqrt[n]{n} - 1 \vert < \epsilon$.
+By part (b), we know that
+\[\vert \sqrt[n]{n} - 1 \vert <
+\displaystyle{ \Bigg| \left( 1 + \frac{1}{\sqrt{n}}
+\right)^2 -1 \Bigg|} = \Bigg| 1 + \frac{1}{n} +
+\frac{2}{\sqrt{n}} - 1 \Bigg| = \Bigg| 
+\frac{2}{\sqrt{n}} + \frac{1}{n} \Bigg|\]
+For large $n$, especially $n >1 $, we have
+$ n > \sqrt{n} $, and we can get rid of absolute 
+signs because they are all positive. so
+
+\[ \Bigg| 
+\frac{2}{\sqrt{n}} + \frac{1}{n} \Bigg| < 
+\frac{2}{\sqrt{n}} + \frac{1}{\sqrt{n}} = \frac{3}{\sqrt{n}} < \epsilon\]
+
+Now, solve for $n$, we have $ \displaystyle{ n >
+\left( \frac{3}{\epsilon} \right)^2}$. So in this case,
+we have proved that when $N = \displaystyle{ 
+\left( \frac{3}{\epsilon} \right)^2}$, for all
+$n \geq N$, $\vert a_n - L \vert < \epsilon$. Hence
+
+\[ \lim \left( \sqrt[n]{n} \right) = 1 \]
+\end{proof}
+
+\newpage
+\section*{Question 3}
+\begin{proof}
+Knowing that $0<a<b$, and the function $f(x) = \sqrt{x}$ is increasing, we
+know that it is true for $\sqrt[n]{2a^n} < \sqrt[n]{a^n+b^n} < \sqrt[n]{2b^n}$
+, i.e $a\sqrt[n]{2} < \sqrt[n]{a^n+b^n} < b\sqrt[n]{2}$. We know that the
+sequence $(x_n) = \sqrt[n]{2}$ is convergent, because we can rewrite as
+$ x_n = \displaystyle{2^{\frac{1}{n}}}$ and $\displaystyle{0< \frac{1}{n} < 1}$.
+Since $a,b$ are constant, then the sequences $ a_n = a\sqrt[n]{2}$ and
+$b_n = b\sqrt[n]{2}$ are also convergent, which will make the sequence
+$x_n = \sqrt[n]{a^n+b^n}$ between them to be convergent. So $(x_n)$
+converges.
+
+
+
+
+\end{proof}
+
+
+
+
+
+\end{document}

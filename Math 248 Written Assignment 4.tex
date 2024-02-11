@@ -1,0 +1,257 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace, lipsum}
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+\title{Linear Algebra}
+\author{Review Material 1}
+\date{2023 6}
+\usepackage{esdiff}
+\usepackage{fixdif}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\lcm}{lcm}
+
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 248 Written Assignment 4}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+
+
+\begin{document}
+\doublespacing
+
+\section*{Question 1}
+We can decompose $\vec F$ into $\vec F_1$ and $\vec F_2$ where
+$\vec F = \vec F_1 + \vec F_2$, like:
+\[ \vec F_1 = e^x\sin(y) \vec i + e^x\cos(y) \vec j
+\hspace*{0.3cm}, \vec F_2 = 3y \vec i + 
+(2x-2y) \vec j\]
+
+And by obversation, $\vec F_1$ is also a conservative field,
+meaning there exists a function $V$ such that
+$\vec{\nabla} V = \vec F$. Such a function is not hard to find,
+the answer is $V(x,y) = e^x\sin(y) + C$ for some $C \in 
+\mathbb{R}$. Then, we come back into our problem, we 
+may rewrite the intergal as:
+\[ \int_C \vec F \cdot d\vec s = \int_C \vec {F_1} \cdot
+d \vec s + \int_C \vec {F_2} \cdot d \vec s\]
+Since $\vec F_1$ is conservative, then by the theorem,
+\[ \int_C \vec F_1 \cdot d \vec s = V(B) - V(A) \]
+In this problem, we may parametrize the ellipse as
+$\vec c(t) = \langle \cos(t) , 2\sin(t) \rangle$ where
+$t$ ranges from $0$ to $2\pi$, counter-clockwise. So
+it means that
+\[ \int_C \vec{F_1} \cdot d \vec s = (e^{\displaystyle{\cos(t)} }\sin(2\sin(t)) + C)
+\Bigg|^{2\pi}_{0} = 0\]
+
+Then, back to $\vec F_2$, by the parametrization of
+$\vec c$, we know that
+\begin{align*}
+\int_C \vec F_2 \cdot d \vec s &= \int_0^{2\pi} \left[ \left(6\sin(t)\right) \vec i + \left( 2\cos(t) - 4\sin(t) \right) \vec j \right] \cdot \left[ -\sin(t) \vec i + 2\cos(t) \vec j \right] dt \\
+&= \int_0^{2\pi} -6\sin^2(t) + 4\cos^2(t) - 8\sin(t)\cos(t) dt \\
+&= \int_0^{2\pi} 5\cos(2t) - 4\sin(2t) -1 dt \\
+&= \frac{5}{2}\sin(2t)+2\cos(2t)-t \Bigg|^{2\pi}_{0}\\
+&= 1 - 2\pi \hspace{0.3cm} \text{which is the final answer}
+\end{align*}
+
+\newpage
+\section*{Question 2}
+\begin{proof}
+By the properties of the intergal, we may write the 
+origonal formula as:
+\[ \int_C f \nabla g + g \nabla f \cdot d \vec s \]
+
+Then, we observe that, by $\textit{Chain Rule}$,
+$\displaystyle{\int_C f\nabla g + g \nabla f \cdot d
+\vec s = f\cdot g \Bigg|^b_a}$. Then, since 
+$ \mathcal{P} := \vec c(a)$, $\mathcal{Q} := 
+\vec c(b)$, so we say that
+\[ f\cdot g \Bigg|^b_a = f(\mathcal{Q})g(\mathcal{Q}) - 
+f(\mathcal{P}) g(\mathcal{P})\]
+
+So the equation we want to prove is correct.
+
+\end{proof}
+
+\newpage
+\section*{Question 3}
+If we project the region on the $xy$ plane, then it
+is a circle centered at $(0,a)$ 
+with radius $a$, and its equation can
+be described as $x^2 + (y-a)^2 = a^2$. Now, by using 
+the polar coordinates, we may describe the region $S 
+:= \lbrace (x,y) : x^2 + (y-a)^2 \leq a^2 \rbrace $ 
+as $x = r\cos\theta$, $y = r\sin\theta$ where
+$0 \leq r \leq 2a$ and $\displaystyle{-\frac{\pi}{2}
+\leq \theta \leq \frac{\pi}{2}}$. Now, we may consider a 
+map from the region $S$ to the surface we would like to 
+intergrate. The function can we written as
+\[ \vec{\Phi}(r,\theta) = (r\cos\theta,r\sin\theta,
+\sqrt{4a^2-r^2\cos^2\theta-r^2\sin^2\theta} ) \]
+Then the cross product given by $T_r \times T_{\theta}$
+is:
+\[ T_r \times T_{\theta} = \det
+\begin{bmatrix}
+i & &  j & & k \\
+\cos\theta & & \sin\theta & & \displaystyle{-\frac{r}{\sqrt{4a^2-r^2}}} \\
+-r\sin\theta & & r\cos\theta & & 0
+\end{bmatrix} \]
+\[= (r\cos^2\theta + r\sin^2\theta)\vec k
++ (\displaystyle{\frac{r^2}{\sqrt{4a^2-r^2}}\cos\theta})
+\vec i + (\displaystyle{\frac{r^2}{\sqrt{4a^2-r^2}}\sin\theta})
+\vec j\]
+
+So, the norm $\Vert T_r \times T_{\theta} \Vert = 
+\displaystyle{\frac{2ar}{\sqrt{4a^2-r^2}}}$. 
+(Assume $a$ is positive). In this case,
+the double intergal 
+\begin{align*}
+\displaystyle{\iint_S} 1 ds
+&= \int_{\theta = -\frac{\pi}{2}}^{\theta = \frac{\pi}{2}} \int_{r=0}^{r=2a} 1 \times 
+\frac{2ar}{\sqrt{4a^2-r^2}} drd\theta \\
+& \\
+&= \pi \int_{0}^{2a} \displaystyle{\frac{2ar}{\sqrt{4a^2-r^2}}dr}\\
+&= -a\pi \int_{2a}^{0} \frac{1}{\sqrt{u}} du \hspace*{0.3cm} By \hspace*{0.2cm} \textit{u-substitution} \\
+&= \displaystyle{2a\pi u^{\frac{1}{2}}\Bigg|^{2a}_{0}} \\
+&= 2\sqrt{2}a^{\frac{3}{2}}\pi \hspace*{0.3cm}, \text{which is the final answer}.
+\end{align*}
+
+\newpage
+\section*{Question 4}
+By our parametrization $\vec{\Phi}$, we know that the 
+area at the given surface is given by:
+\[ \iint_D 1 \cdot \Vert T_u  \times T_v \Vert dS \]
+In this case, the intergration part is given by 
+$ 0<u<2\pi$ and $0 < v < 2\pi$. Now, the cross
+product can be calculated as:
+\[ T_u \times T_v = \det
+\begin{bmatrix}
+\vec i && \vec j && \vec k \\
+-r\sin u \cos v && -r \sin u \sin v && r\cos u \\
+-(a+r\cos u) \sin v && (a+r\cos u) \cos v && 0
+\end{bmatrix}
+\]
+\[ =  r(a+r\cos u) \cdot \Bigg[ -\cos u \cos v \vec i -
+\cos u \sin v \vec j + \sin u \vec k \Bigg]\]
+
+Then, by calculating the norm of it, we get
+$ \Vert T_u \times T_v \Vert = r(a+r\cos u) $. In this case,
+the surface intergal can be written as:
+\[ \iint_D 1 \cdot \Vert T_u \times T_v \Vert dS = 
+\int_0^{2\pi} \int_0^{2\pi} r(a+r\cos u) dudv\]
+Since this intergal is independent of $v$, we may multiply
+$2\pi$ in front of it and hence we get
+$\displaystyle{2\pi \int_0^{2\pi} ar + r^2 \cos u du}$, then
+it becomes 
+\[ 2\pi \Bigg[ aru + r^2\sin u\Bigg]^{2\pi}_0 = 4\pi^2 ar\]
+
+
+
+
+\newpage
+\section*{Question 5}
+
+By definition, the flux is given by the surface intergal 
+over the vector field $\vec F = 2x \vec i + y \vec j +
+z \vec k$, and the surface $ \vec{\Phi}(u,v) = 
+(u^2v,uv^2,v^3)$. The flux $\vec{\Omega}$ 
+with specific orentation can be defined 
+as 
+\[ \vec{\Omega} = \iint_D \vec{F} \vec{\cdot} 
+(\vec{T}_u \times \vec{T}_v) dudv 
+\]
+
+In this case, the cross product $\vec{T}_u \times
+\vec{T}_v $ is given by
+\[ \det
+\begin{bmatrix}
+\vec i & \vec j & \vec k \\
+2uv & v^2 & 0\\
+u^2 & 2uv & 3v^2
+\end{bmatrix} = 3v^4 \vec i - 6uv^3 \vec j + 3u^2v^2 \vec k
+\]
+
+Then, the surface intergal can be written As
+\begin{align*}
+\iint_D \vec{F} \vec{\cdot} 
+(\vec{T}_u \times \vec{T}_v) dudv &= \int_0^1 \int_0^1 
+(2u^2v \vec i + uv^2 \vec j + v^3 \vec k) \cdot 
+(3v^4 \vec i - 6uv^3 \vec j + 3u^2v^2 \vec k) dudv\\
+&\\
+&= \int_0^1 \int_0^1 6u^2v^5 - 6u^2v^5 + 3u^2v^5 dudv \\
+&\\
+&= 3\int_0^1 \int_0^1 u^2v^5 dudv\\
+&\\
+&= 3 \int_0^1 u^2 du \int_0^1 v^5 dv \\
+&\\
+&= 3 \times \frac{1}{3} \times \frac{1}{6}\\
+&\\
+&= \frac{1}{6}, \hspace*{0.2cm} \text{which is the final answer}.
+\end{align*}
+
+\newpage
+\section*{Question 6}
+In this problem, the surface intergral in the vector field
+$\vec F = z^2 \vec k $ can be described as
+\[ \iint_{\vec{\phi}} \vec{F} \vec{\cdot} dS 
+= \iint_D \vec{F} \vec{\cdot} (T_u \times T_v) dudv \]
+
+In this problem, the function $\vec{\Omega}(\theta,\phi)$ 
+can  be parametrized as $\vec{\Omega}(\theta, \phi) = 
+(a \sin{\phi}\cos{\theta} , a\sin{\phi}\sin{\theta} ,
+a\cos{\phi})$. Where we know that
+$ \displaystyle{0 \leq \theta \leq \frac{\pi}{2}
+}$ and $\displaystyle{0 \leq \phi \leq 
+\frac{\pi}{2}}$. Now, the cross product of $T_{\theta}$ and $T_{\phi}$ is
+given by
+
+\[ T_{\theta} \times T_{\phi} = \det
+\begin{bmatrix}
+\vec i & &\vec j & & \vec k \\
+-a\sin{\phi}\sin{\theta} && a\sin{\phi}\cos{\theta}&&0\\
+a\cos{\phi}\cos{\theta}&&a\cos{\phi}\sin{\theta}&&-a\sin{\phi}
+\end{bmatrix}
+\]
+\[ = (-a^2\sin^2{\phi}\cos{\theta}) \vec i +
+(-a^2\sin^2{\phi}\sin{\theta})\vec j + (-a^2\sin
+{\phi}\cos{\phi})\vec k \]
+
+Then, by using $z = a\cos{\phi}$, we get the surface
+intergal as:
+\begin{align*}
+\iint_D \vec{F} \vec{\cdot} (T_u \times T_v) dudv 
+&= \int_{0}^{\frac{\pi}{2}}\int_0^{\frac{\pi}{2}}
+(a^2\cos^2{\phi})\vec k \vec{\cdot} (-a^2\sin^2{\phi}\cos{\theta} \vec i - a^2\sin^2{\phi}\sin{\theta}\vec j - a^2 \sin{\phi}\cos{\phi} \vec k) d \theta d \phi \\
+&\\
+&= \int_{0}^{\frac{\pi}{2}}\int_0^{\frac{\pi}{2}} -a^4\sin{\phi}\cos^3{\phi} d\theta d \phi \\
+&\\
+&= -\frac{a^4\pi}{2} \int_0^{\frac{\pi}{2}} \sin{\phi}\cos^3{\phi} d\phi\\
+&\\
+&= \frac{a^4\pi}{2}\int_1^0 u^3 du \hspace*{0.2cm} \textit{By u-Substitution} \\
+&\\
+&= -\frac{a^4 \pi}{8}
+\end{align*}
+Since the norm $\vec n$ of the surface is of the "same" direction as the vector field, 
+i.e $\vec F \cdot \vec n > 0$. Hence
+the value should be positive, so the fulx is
+$\displaystyle{\frac{a^4\pi}{2}}$.
+
+
+\end{document}

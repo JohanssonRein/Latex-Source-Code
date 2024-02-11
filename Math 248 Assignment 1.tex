@@ -1,0 +1,307 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace, lipsum}
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+\title{Linear Algebra}
+\author{Review Material 1}
+\date{2023 6}
+\usepackage{esdiff}
+\usepackage{fixdif}
+
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 248 Written Assignment 1}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+
+
+\begin{document}
+\doublespacing
+
+\section*{Problem 1}
+Recall the formula:
+\[ \text{Say} \hspace*{0.2cm} \vec x, \vec y \hspace*{0.2cm} \text{are vectors in}
+\hspace*{0.2cm} \mathbb{R}^n \hspace*{0.2cm} \text{then the angle between} \hspace*{0.2cm} \vec x, \vec y
+\hspace*{0.2cm}\text{is} \hspace*{0.2cm} \cos{\theta} =
+ \frac{\vec x \cdot \vec y}{\Vert \vec x \Vert \Vert \vec y \Vert} \]
+
+In this problem, we are given that $ \vec v_1 = 
+\begin{pmatrix}
+    4\sqrt{6}, & 8, & 4\sqrt{6}
+\end{pmatrix} $ and $\vec v_2 = 
+\begin{pmatrix}
+    \frac{15\sqrt{2}}{2},& 0 ,&\frac{15\sqrt{2}}{2}
+\end{pmatrix} $. So
+
+\begin{align*}
+    \cos{\theta} & = \frac{\left(4\sqrt{6}\times\frac{15\sqrt{2}}{2} \right)
+    \times 2}{\sqrt{256}\times \sqrt{15}} \\
+    & = \frac{120\sqrt{3}}{160} \\
+    & = \frac{\sqrt{3}}{2} \\
+    & = \cos\left( \frac{\pi}{6} \right) 
+\end{align*}
+
+So we say that the angle between $\vec v_1, \vec v_2 $ is $\frac{\pi}{6}$.
+
+\newpage
+\section*{Problem 2}
+
+\begin{proof}
+
+    In order to show that $ \Vert \vec x  -  \vec y \Vert \Vert \vec z \Vert \leq
+    \Vert \vec y  -  \vec z \Vert \Vert \vec x \Vert + 
+    \Vert \vec z  -  \vec x \Vert \Vert \vec y \Vert $, we can devide both $L.H.S$ and
+    $R.H.S$ by a same positive value $ \Vert \vec x \Vert \Vert \vec y \Vert 
+    \Vert \vec z \Vert $, so it becomes
+    \begin{align*}
+        \frac{\Vert \vec x - \vec y \Vert}{\Vert \vec x \Vert \Vert \vec y \Vert} & \leq
+        \frac{\Vert \vec y - \vec z \Vert}{\Vert \vec y \Vert \Vert \vec z \Vert} + 
+        \frac{\Vert \vec z - \vec x \Vert}{\Vert \vec z \Vert \Vert \vec x \Vert} \\
+        & = \frac{1}{\Vert \vec z \Vert} \left( \frac{\Vert \vec y - \vec z \Vert}{\Vert \vec y \Vert } + 
+        \frac{\Vert \vec z - \vec x \Vert}{ \Vert \vec x \Vert} \right)
+    \end{align*}
+    \[ \text{By trangle inequality, we know that} \hspace*{0.3cm} \frac{1}{\Vert \vec z \Vert} 
+    \left( \frac{\Vert \vec y - \vec z \Vert}{\Vert \vec y \Vert } + 
+    \frac{\Vert \vec z - \vec x \Vert}{ \Vert \vec x \Vert} \right) \geq 
+    \frac{1}{\Vert \vec z \Vert} 
+    \Vert  \frac{ \vec y - \vec z }{ \vec y  } + 
+    \frac{\vec z - \vec x }{  \vec x } \Vert \]
+
+    \[\text{Which is} \hspace*{0.3cm} \frac{1}{\Vert \vec z \Vert} 
+    \left( \frac{\Vert \vec y - \vec z \Vert}{\Vert \vec y \Vert } + 
+    \frac{\Vert \vec z - \vec x \Vert}{ \Vert \vec x \Vert} \right)  \geq
+    \frac{1}{\Vert \vec z \Vert} 
+    \frac{\Vert \left( \vec y - \vec z \right) \vec x 
+    + \left( \vec z - \vec x \right) \vec y \Vert }{\Vert  \vec x \vec y \Vert} \]
+        
+    \[ \text{So} \hspace*{0.3cm} L.H.S \geq 
+    \frac{1}{\Vert \vec z \Vert}
+    \frac{\Vert \vec y \vec x - \vec z \vec x
+    + \vec z \vec y - \vec x \vec y \Vert }
+     {\Vert  \vec x \vec y \Vert} \]
+
+    \[ \text{Which is} \hspace*{0.3cm} L.H.S \geq
+    \frac{1}{\Vert \vec z \Vert}
+    \frac{\Vert \vec z \vec y - \vec z \vec x \Vert }
+     {\Vert  \vec x \vec y \Vert} \]
+
+    \[ \text{That is} \hspace*{0.3cm}
+    L.H.S \geq \frac{1}{\Vert \vec z \Vert}
+    \frac{\Vert \vec z \Vert \Vert \vec y - \vec x \Vert}{\Vert \vec x
+    \vec y \Vert} \]
+
+    \[ \text{Then, we conclude that} \hspace*{0.3cm}
+    L.H.S \geq \frac{\Vert \vec y - \vec x \Vert}{\Vert \vec x \vec y
+    \Vert} = \frac{\Vert \vec x - \vec y \Vert}{\Vert \vec x \vec y
+    \Vert}\]
+
+    \[ \text{Then, it is the same as saying} \hspace*{0.3cm}
+    \frac{1}{\Vert \vec z \Vert} 
+    \left( \frac{\Vert \vec y - \vec z \Vert}{\Vert \vec y \Vert } + 
+    \frac{\Vert \vec z - \vec x \Vert}{ \Vert \vec x \Vert} \right)  \geq
+    \frac{\Vert \vec x - \vec y \Vert}{\Vert \vec x \vec y
+    \Vert}\]
+
+    \[ \text{Then, we have proved that} \hspace*{0.3cm}
+    \Vert \vec x  -  \vec y \Vert \Vert \vec z \Vert \leq
+    \Vert \vec y  -  \vec z \Vert \Vert \vec x \Vert + 
+    \Vert \vec z  -  \vec x \Vert \Vert \vec y \Vert \]
+
+\end{proof}
+
+\newpage
+\section*{Problem 3}
+\begin{proof}
+We need to show that $\forall \epsilon > 0, \exists \delta(\epsilon, \vec{x}_0)
+\vert \hspace*{0.3cm} \Vert \vec x - \vec{x}_0 \Vert < \delta \Longrightarrow \Vert f(\vec x)
+- f(\vec x_0) \Vert < \epsilon $
+
+In this problem, we know that $ \Vert \vec x - \vec x_0 \Vert = 
+\sqrt{(x-x_0)^2 + (y-y_0)^2 + (z-z_0)^2} $
+
+Also, $ \Vert f(\vec x) - f(\vec x_0) \Vert = \vert a(x-x_0)+b(y-y_0)+c(z-z_0)+d-d \vert $.
+ Then by $\textit{Cauchy-Schwarz Inequality}$, 
+\[ \vert a(x-x_0)+b(y-y_0)+c(z-z_0) +d-d\vert \leq
+\sqrt{a^2+b^2+c^2} \sqrt{(x-x_0)^2+(y-y_0)^2+(z-z_0)^2} \]
+\[ \text{If we choose} \hspace*{0.3cm}\epsilon = \delta \sqrt{a^2+b^2+c^2}
+\hspace*{0.3cm} \text{then, since} \hspace*{0.3cm} a^2+b^2+c^2 \neq 0,\]
+\[ \Vert \vec x - \vec{x}_0 \Vert < \delta \Longrightarrow \Vert f(\vec x)
+- f(\vec x_0) \Vert < \epsilon \]
+\[ \text{So} \hspace*{0.3cm} \lim_{\vec x \rightarrow \vec x_0}
+\left( ax+by+cz+d \right) = ax_0+by_0+cz_0+d \]
+    
+\end{proof}
+
+\newpage
+\section*{Problem 4}
+
+In order to show that $f(x,y)$ is continuous at $(0,0)$, we need to show
+$\lim_{\vec x \rightarrow \vec 0} = f(0,0) = 0 $
+
+\[ \text{Which is to show} \hspace*{0.2cm}
+ \lim_{\vec x \rightarrow \vec 0} \frac{x^{1+a}y^{1+b}}{x^2+y^2}
+ = 0\]
+
+Since we know that $\forall x,y \in \mathbb{R} , (x-y)^2 \geq 0 $,
+That is the same as $x^2 + y^2 \geq 2xy$, also true for 
+$ x^2 + y^2 \geq \vert 2xy \vert $, and finally the statement
+\[ \bigl\lvert \frac{xy}{x^2 + y^2} \bigr\rvert \leq \frac{1}{2} \]
+\begin{align*} 
+    \text{Then,} \hspace*{0.2cm} \frac{x^{1+a}y^{1+b}}{x^2 + y^2}
+    &= \frac{xy}{x^2 + y^2}x^ay^b \\
+    & \leq \frac{1}{2}x^a y^b
+\end{align*}
+\[ \lim_{\vec x \rightarrow \vec 0}f(x,y) \leq 
+\frac{1}{2}\lim_{(x,y) \rightarrow (0,0)} x^a y^b =
+\frac{1}{2}\lim_{x \rightarrow 0}x^a \lim_{y \rightarrow 0}y^b \]
+
+If $\vert x - 0 \vert < \delta$, we pick $\epsilon = \delta^{a-1}$
+, then for the function $f(x)=x^a$, we can show that $\vert x-0\vert
+< \delta$, then $\vert x^a - 0 \vert < \epsilon $. 
+So, $\lim_{x \rightarrow 0}x^a = 0$, We can also use the same process
+to show that $\lim_{y\rightarrow 0}y^b = 0$ by taking $ \epsilon
+= \delta^{b-1}$
+
+Since the limits are both zero, we can conclude that the origional
+limit is also zero. Since $\lim_{\vec x \rightarrow \vec 0}f(x,y)
+= f(0,0) = 0$, we say $f(x)$ is continuous at $(0,0)$
+ 
+
+
+
+\newpage
+\section*{Problem 5}
+
+\subsection*{Part(a)}
+Recall that the tangent plane for function $z = f(x,y)$ at $(x_0,y_0)$
+is
+
+\[ \boxed{z - f(x_0,y_0) = \frac{\partial f}{\partial x}\bigg|_{(x_0,y_0)}(x-x_0)
++ \frac{\partial f}{\partial y}\bigg|_{(x_0,y_0)}(y-y_0)} \hspace*{1cm} \textit{Equation (1)}\]
+
+At the point $(1,2,f(1,2))$, we can calculate the following:
+
+\[ \frac{\partial f}{\partial x}\bigg|_{(x_0,y_0)}(x-x_0) = 
+(e^{y^2}-2xye^{x^2})\bigg|_{(1,2)}(x-1) = (e^4-4e)(x-1)\]
+
+\[ \frac{\partial f}{\partial y}\bigg|_{(x_0,y_0)}(y-y_0) = 
+(2xye^{y^2}-e^{x^2}\bigg|_{(1,2)}(y-2)) = (4e^4-e)(y-2) \]
+
+\[ f(1,2) = e^4-2e \]
+
+Then we can plug in those figures into the formula, and we can get
+
+\[ z - e^4 + 2e = (e^4-4e)(x-1)+(4e^4-e)(y-2) \]
+
+\[ \boxed{z = (e^4-4e)x + (4e^4-e)y + 4e-8e^4} \hspace*{1cm} \textit{Equation (2)}\]
+
+\begin{center}
+    The boxed equation 2 is exactly what we need to find.
+\end{center}
+
+\newpage
+\subsection*{Part(b)}
+Firstly find the general tangent plane equation for $ z = x^2 - y^2$,
+at $(x_0,y_0)$
+by using equation (1) which was shown in part(a), we get
+\[ z - x_0^2 + y_0^2 = 2x_0(x-x_0) - 2y_0(y-y_0) \]
+\[ \boxed{z = 2x_0x - 2y_0y -x_0^2 + y_0^2} \]
+If the above equation is parallel to equation (2), then it satisifies
+
+\[ \begin{cases}
+    x_0 = (e^4-4e)\\
+    y_0 = (e-4e^4)
+\end{cases} \]
+
+The point which tangent plane parallel to the one in part(a) is
+$ (e^4-4e,e-4e^4)$
+
+\newpage
+\section*{Problem 6}
+\begin{proof}
+    To show that the angle $\theta$ between $\vec{c}(t)$ and 
+    $\vec{c}^{\prime}(t)$ is a constant number, we only need to show that
+    $\cos{\theta}$ is a constant. Recall the definition of the angle
+    between two vectors, i.e to show
+
+    \[ \cos{\theta} = \frac{\vec c(t) \bullet \vec c^{\prime}(t)}
+    {\Vert \vec c(t) \Vert \Vert \vec c^{\prime}(t) \Vert}
+    \hspace*{0.3cm} \text{is a constant}\]
+
+    
+    $ \vec c(t) = \langle e^t\cos(t),e^t\sin(t) \rangle $
+    
+    
+    $ \vec c^{\prime}(t) = \langle e^t(\cos(t) - \sin(t)) ,
+    e^t( \sin(t) + \cos(t))$
+    
+
+    $ \Vert \vec c(t) \Vert^2 = e^{2t}\cos^2(t) + e^{2t}\sin^2{t}
+    = e^{2t}$
+   
+    $\Vert \vec c^{\prime}(t) \Vert^2  = e^{2t}(\cos^2(t)+\sin^2(t)
+    -\cos(t))\sin(t)+e^{2t}(\cos^2(t)+\sin^2(t)
+    +\cos(t))\sin(t) 
+     = 2e^{2t} $
+
+    So, by pluging in these figures into the formlua above, we get
+
+    \begin{align*}
+    \cos{\theta} &= \frac{e^t\cos(t)e^t(\cos(t)-\sin(t))
+    + e^t\sin(t)e^t(\sin(t)+\cos(t))}{\sqrt{2}e^{2t}} \\
+    &= \frac{e^{2t}}{\sqrt{2}e^{2t}} \\
+    & = \frac{1}{\sqrt{2}}
+    \end{align*}
+
+    \[ \text{So,} \hspace*{0.3cm} \cos{\theta} = \frac{\pi}{4} \]
+
+\end{proof}
+
+\newpage
+\section*{Problem 7}
+Suppose two maps $f,g$ such that $ f:(u,v) \mapsto (x,y,z)$
+and $g: (x,y,z) \mapsto w$,
+Then, $g(f(u,v))=w$.
+
+\[ \text{By Chain rule,}\hspace*{0.2cm}\mathcal{D}_{g(f(x))} = 
+\begin{pmatrix}
+    \frac{\partial g}{\partial x} & \frac{\partial g}{\partial y} & \frac{\partial g}{\partial z} 
+\end{pmatrix} \]
+
+\[ \mathcal{D}_f = 
+\begin{pmatrix}
+    \frac{\partial f_1}{\partial u} & \frac{\partial f_1}{\partial v} \\
+    \frac{\partial f_2}{\partial u} & \frac{\partial f_2}{\partial v} \\
+    \frac{\partial f_3}{\partial u} & \frac{\partial f_3}{\partial v} 
+\end{pmatrix} \]
+By matrix multiplication, we get 
+\[\mathcal{D}_{g(f(x))}\mathcal{D}_f
+= \begin{pmatrix}
+    \frac{\partial g}{\partial x} & \frac{\partial g}{\partial y} & \frac{\partial g}{\partial z} 
+\end{pmatrix} \begin{pmatrix}
+    \frac{\partial f_1}{\partial u} & \frac{\partial f_1}{\partial v} \\
+    \frac{\partial f_2}{\partial u} & \frac{\partial f_2}{\partial v} \\
+    \frac{\partial f_3}{\partial u} & \frac{\partial f_3}{\partial v} 
+\end{pmatrix}\]
+
+
+
+
+\end{document}

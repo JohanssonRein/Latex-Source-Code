@@ -1,0 +1,869 @@
+
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb, amsthm}
+
+\usepackage[margin=2cm, headheight=15pt]{geometry}
+\fontsize{24}{16}\selectfont
+\setlength{\parindent}{0pt}
+\title{Linear Algebra}
+\author{Review Material 1}
+\date{2023 6}
+\usepackage{esdiff}
+\usepackage{fixdif}
+
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Span}{span}
+\usepackage{xcolor}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\intd}{d}
+\DeclareMathOperator{\trace}{tr}
+
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textit{Math 235 Written Assignment 1}}
+\lhead{\textit{Written by Johnson 261105766}}
+\chead{}
+\cfoot\thepage
+\pagestyle{fancy}
+
+
+
+
+
+\begin{document}
+
+
+
+\part*{Content}
+
+\vspace*{0.3cm}
+The problems written in this document are: 1,2,4,5,6,8
+
+\vspace*{4cm}
+
+\[ \textbf{Problem 1} \cdots\cdots\cdots\cdots\cdots\cdots\textbf{page 2} \]
+
+\[ \textbf{Problem 2} \cdots\cdots\cdots\cdots\cdots\cdots\textbf{page 4} \]
+
+\[ \textbf{Problem 4} \cdots\cdots\cdots\cdots\cdots\cdots\textbf{page 7} \]
+
+\[ \textbf{Problem 5} \cdots\cdots\cdots\cdots\cdots\cdots\textbf{page 9} \]
+
+\[ \textbf{Problem 6} \cdots\cdots\cdots\cdots\cdots\cdots\textbf{page 10} \]
+
+\[ \textbf{Problem 8} \cdots\cdots\cdots\cdots\cdots\cdots\textbf{page 12} \]
+
+\newpage
+\section*{Problem 1}
+
+\begin{proof}
+
+    In order to prove the theorem, we can construct an induction step as follows:
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    \textbf{$\bullet$ The Base Step:}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    We firstly think of a set with only one element, $\mathcal{S}_1 = \lbrace{ a_1 \rbrace } $,
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $a_1 \in \mathbb{N} $
+    In this case, $ \lvert \mathcal{S}_1 \rvert =1 $, so we can say that $a_1$ is the minimum element
+    of $\mathcal{S}$
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Which we have shown that, the base case is true.
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    \textbf{$\bullet$ The Inductive Step:}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Now, for a picked $n$, we assume that the theorem is true, that is
+
+    \[ \mathcal{S}_n = \lbrace a_1, a_2, \cdots, a_{n-1}, a_n \rbrace \hspace*{0.3cm} \text{has a minimum element, where}\]
+
+    \[ a_1, a_2, \cdots, a_{n-1}, a_n \in \mathbb{N} \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Now we assume the minimum element in $\mathcal{S}_n$ is $a_k$, $1 \leq k \leq n$, so
+
+    \[ \forall a_i \in \mathcal{S}_n, \hspace*{0.3cm} 1 \leq i \leq n, \hspace*{0.3cm} a_i \geq a_k \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Now, we would like to prove that the theorem is also true for $n+1$, so we construct 
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    a new set $ \mathcal{S}_{n+1}$ with cardinality $n+1$ such that
+
+    \[ \mathcal{S}_{n+1} = \lbrace a_1, a_2, \cdots, a_k, \cdots, a_n, a_{n+1} \rbrace \] 
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Now, we need to consider $a_{n+1}$
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    $\blacktriangle$ \textit{IF $a_{n+1} > a_k$:}
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    Then,by the proporty of $\mathcal{S}_n$ which we had already discussed, we know that
+
+    \[ \forall a_i \in \mathcal{S}_{n+1}, \hspace*{0.3cm} 1 \leq i \leq n+1, \hspace*{0.3cm}, a_i \geq a_k \]
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    So, $a_k$ is the minimum element in set $\mathcal{S}_{n+1}$
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    So, there exists an minimum element in $\mathcal{S}_{n+1}$
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    $\blacktriangle$ \textit{IF $a_{n+1} < a_k$:}
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    Then,by the proporty of $\mathcal{S}_n$ which we had already discussed, we know that
+
+    \[ \forall a_i \in \mathcal{S}_{n+1}, \hspace*{0.3cm} 1 \leq i \leq n+1, \hspace*{0.3cm}, a_i \geq a_{n+1} \]
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    So, $a_k$ is the minimum element in set $\mathcal{S}_{n+1}$
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    So, there exists an minimum element in $\mathcal{S}_{n+1}$
+
+    \newpage
+    \hspace*{2cm}
+    $\blacktriangle$ \textit{IF $a_{n+1} = a_k$:}
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    Then,by the proporty of $\mathcal{S}_n$ which we had already discussed, we know that
+
+    \[ a_k = a_{n+1} \hspace*{0.2cm} \text{are the minumum elements of}  \hspace*{0.2cm}\mathcal{S}_{n+1} \]
+
+    \vspace*{0.3cm}
+    \hspace*{2cm}
+    So, there exists an minimum element in $\mathcal{S}_{n+1} $
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $\bullet$ \textbf{Conclusion:}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    In conclusion, according to the base case and inductive case, it's true that
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Every subset of $\mathbb{N}$ has a minimum element.
+
+\end{proof}
+
+\newpage
+\section*{Problem 2}
+
+\begin{proof}
+    We firstly noticed that, $\mathcal{C}_1 = 1, \mathcal{C}_2 = 2, \mathcal{C}_3 = 3 $
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, it is clear that $\mathcal{C}_4 = 5, \mathcal{C}_5 = 8 $
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    It is not hard to find the recursion formula for $\mathcal{C}_n$, which is:
+    
+    \[ \mathcal{C}_n = \mathcal{C}_{n-1} + \mathcal{C}_{n-2} ,\hspace*{0.3cm} n > 2 \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Then we need to prove by induction that, for each $n \geq 1$,
+
+    \[ \mathcal{C}_{n} = \frac{1}{\sqrt{5}} \times \left[ \left( \frac{1+\sqrt{5}}{2} 
+    \right)^{n+1} -  \hspace*{0.4cm}\left( \frac{1-\sqrt{5}}{2} \right)^{n+1} \right] \]
+    
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $\bullet$ \textbf{The Base Case:}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    When $n=1$, we plug $n$ into the above formula, we get 
+    
+
+    \begin{align*}
+        \mathcal{C}_{1} & = \frac{1}{\sqrt{5}} \times \left[ \left( \frac{1+\sqrt{5}}{2} 
+    \right)^{2} -  \hspace*{0.4cm}\left( \frac{1-\sqrt{5}}{2} \right)^{2} \right] \\
+        & = \frac{1}{4\sqrt{5}} \times \left[ \left( 1 + 2\sqrt{5}+5
+        \right) -  \hspace*{0.4cm}\left( 1 - 2\sqrt{5}+5 \right) \right]\\
+        & = \frac{1}{4\sqrt{5}} \times \left[ 4\sqrt{5} \right]\\
+        & = 1 \\
+        & = \mathcal{C}_1
+    \end{align*}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    When $n=2$, we plug $n$ into the above formula, we get 
+    
+
+    \begin{align*}
+        \mathcal{C}_{2} & = \frac{1}{\sqrt{5}} \times \left[ \left( \frac{1+\sqrt{5}}{2} 
+    \right)^{3} -  \hspace*{0.4cm}\left( \frac{1-\sqrt{5}}{2} \right)^{3} \right] \\
+        & = \frac{1}{8\sqrt{5}} \times \left[ \left( 8\sqrt{5}+16
+        \right) -  \hspace*{0.4cm}\left( -8\sqrt{5}+16 \right) \right]\\
+        & = \frac{1}{8\sqrt{5}} \times \left[ 16\sqrt{5} \right]\\
+        & = 2 \\
+        & = \mathcal{C}_2
+    \end{align*}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    So, we have proved that the base case is correct.
+
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    $\bullet$ \textbf{The Inductive Case:}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    For a picked $n$, $n \in \mathbb{N} , n \neq 0 $, we suppose the equation
+
+    \[ \mathcal{C}_{n} = \frac{1}{\sqrt{5}} \times \left[ \left( \frac{1+\sqrt{5}}{2} 
+    \right)^{n+1} -  \hspace*{0.4cm}\left( \frac{1-\sqrt{5}}{2} \right)^{n+1} \right] 
+    \hspace*{0.3cm} \text{is true }\]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Then, we need to prove that it is also true for $n+1$, i.e proving that
+
+    \[ \mathcal{C}_{n+1} = \frac{1}{\sqrt{5}} \times \left[ \left( \frac{1+\sqrt{5}}{2} 
+    \right)^{n+2} -  \hspace*{0.4cm}\left( \frac{1-\sqrt{5}}{2} \right)^{n+2} \right] 
+    \hspace*{0.3cm} \text{is also true }\]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    From the recursion formula for $\mathcal{C}_n$ and the cases provided, we know that
+
+    \[ \mathcal{C}_{n} = \mathcal{C}_{n-1} + \mathcal{C}_{n-2} \hspace*{0.3cm} \text{is true}\]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    If we denote $ \phi = \frac{\sqrt{5}+1}{2}$, then
+
+    \[ \frac{1}{\sqrt{5}} \left[ (\phi)^{n+1} - \left( 1-\phi \right)^{n+1} \right] = 
+    \frac{1}{\sqrt{5}} \left[ (\phi)^{n} - \left( 1-\phi \right)^{n} \right] + 
+    \frac{1}{\sqrt{5}} \left[ (\phi)^{n-1} - \left(1 -\phi \right)^{n-1} \right] 
+    \hspace*{0.3cm} \text{is true} \] 
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    For $\mathcal{C}_{n+1} = \mathcal{C}_n + \mathcal{C}_{n-1} $, we need to prove that the formula still holds for
+
+    \[ \frac{1}{\sqrt{5}} \left[ (\phi)^{n+2} - \left(1-\phi \right)^{n+2} \right] = 
+    \frac{1}{\sqrt{5}} \left[ (\phi)^{n+1} - \left( 1-\phi \right)^{n+1} \right] + 
+    \frac{1}{\sqrt{5}} \left[ (\phi)^{n} - \left( 1-\phi \right)^{n} \right] 
+     \] 
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    That is the same to prove
+
+    \[   (\phi)^{n+2} - \left(1 -\phi \right)^{n+2}  = 
+   (\phi)^{n+1} - \left( 1-\phi \right)^{n+1}  + 
+     (\phi)^{n} - \left( 1-\phi \right)^{n}  \]
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Recall the properties of golden ratio $\phi = \frac{\sqrt{5}+1}{2}$, that I shall use in the following proof
+
+    \[ \phi^2 = 1 + \phi \hspace*{2cm} \phi = 1 + \frac{1}{\phi} \]
+
+    \begin{align*}
+        L.H.S & =  (\phi)^{n+1} - \left( 1-\phi \right)^{n+1}  + 
+        (\phi)^{n} - \left( 1-\phi \right)^{n} \\
+         & = \phi^n \left( 1+\phi \right) - \left( 1-\phi \right)^n(1-\phi+1) \\
+        & = \phi^n \left( 1+\phi \right) - \left( 1-\phi \right)^n(1+\phi-2\phi+1) \\
+        & = \phi^n \left( \phi^2 \right) - \left( 1-\phi \right)^n(\phi^2-2\phi+1) \\
+        & = \phi^{n+2} - \left( 1-\phi \right)^{n}\left(1 - \phi\right)^2 \\
+        & = \phi^{n+2} - \left( 1-\phi \right)^{n+2}
+    \end{align*}
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    Which is exactly what we need to prove.
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    In this case, we have proved that the formula is also true for $\mathcal{C}_{n+1}$
+
+    \newpage
+    \hspace*{1.2cm}
+    $\bullet \textbf{Conclusion:}$
+
+    \vspace*{0.3cm}
+    \hspace*{1.2cm}
+    According to the base case and the conductive case, we have proved that
+
+    \[ \mathcal{C}_{n} = \frac{1}{\sqrt{5}} \times \left[ \left( \frac{1+\sqrt{5}}{2} 
+    \right)^{n+1} -  \hspace*{0.4cm}\left( \frac{1-\sqrt{5}}{2} \right)^{n+1} \right] \]
+
+    \[ \text{Is true for} \hspace*{0.2cm} n \geq 1, \hspace*{0.3cm} \mathcal{C}_{n+2} =
+     \mathcal{C}_{n+1} + \mathcal{C}_{n}, \hspace*{0.2cm} \left( \mathcal{C}_{1} = 1
+     , \mathcal{C}_{2} = 2 \right) \]
+     
+\end{proof}
+
+\newpage
+\section*{Problem 4}
+
+\hspace*{0.6cm}To begin with, I would like to give a propsition that I will use to
+solve this problem
+
+
+
+\[\textit{Proposition:} \hspace*{0.3cm} 
+1 + 2+ 3+ \cdots + n = \frac{(1+n)n}{2} \]
+
+
+
+
+In general case, we may assume a sequence $\mathcal{A}_n$, 
+such that $\mathcal{A}_n = \mathcal{X}n + \mathcal{Y}$,
+$\mathcal{X},\mathcal{Y} \in \mathbb{R}$
+
+\vspace{0.3cm}
+So, we can give the formula below:
+
+\[ \sum_{i=n}^{m} \mathcal{A}_i = \frac{\left( 
+    \mathcal{A}_n+\mathcal{A}_m \right)(m-n+1)}{2} 
+    \hspace*{0.3cm}\text{where} \hspace*{0.3cm}m > n \hspace*{0.3cm} m,n \in \mathbb{N}\]
+
+Take a look at the elements of $\mathbb{N} \times \mathbb{N}$
+using diagonals, we observe from the array that
+
+\[ \begin{matrix}
+    0&1&3&6&10&\cdots \\
+    2&4&7&11& \cdots &\cdots \\
+    5&8&12&\cdots&\cdots&\cdots \\
+    9&13&\cdots&\cdots&\cdots&\cdots\\
+    14&\cdots&\cdots&\cdots&\cdots&\cdots \\
+    \vdots&\vdots&\vdots&\vdots&\vdots&\vdots
+    
+\end{matrix}\]
+
+\vspace*{0.3cm}
+In the first row, starting from the second element, we see that the elements are added by
+1, 2, 3, 4, ... from the previous element; The second row is very similiar, which starts with 2 and
+added by 2, 3, 4, ... accordingly.
+
+\vspace*{0.3cm}
+This is also true for columns, in the first column, the value of elements are added by 2,
+ 3, 4, 5, ... accordingly.
+
+
+
+
+\[ \vdots \]
+
+In this case, we may assume that if a number lies on the $i$th row and $j$th column, then
+then the first value of $j$th column should be:
+
+\[ \mathbb{N}_{(1,j) = }\underbrace{1+2+3+ \cdots + (j-1)}_\text{The first value of \textit{j}th column } 
+= \frac{j(j-1)}{2}\]
+
+\vspace*{0.3cm}
+Therefore, by the obversation we had done before, if the number lies
+on the $j$th column, then the second, third number in $j$th column 
+should be 
+
+\[ \mathbb{N}_{(2,j)} = \frac{j(j-1)}{2} + (j+1)\]
+
+\[ \mathbb{N}_{(3,j)} = \frac{j(j-1)}{2} + (j+1)+(j+2)\]
+
+
+So, in this case, if we want to reach the $i$th row, we need to sum up to $j+i-1$, which Is
+
+\begin{align*}
+    \mathbb{N}_{(i,j)} &= \frac{j(j-1)}{2} + (j+1) + (j+2) + \cdots + (j+i-1) \\
+     &= \frac{j(j-1)}{2} + \frac{(2j+i)(i-1)}{2} \\
+     & = \frac{i^2+j^2+2ij-i-3j}{2}
+\end{align*}
+
+\vspace*{0.3cm}
+So we obtained a general formula for the elements of $\mathbb{N} \times
+\mathbb{N}$ using diagonals.
+
+
+In the array
+
+\[ \begin{matrix}
+    0&1&3&6&10&\cdots \\
+    2&4&7&11& \cdots &\cdots \\
+    5&8&12&\cdots&\cdots&\cdots \\
+    9&13&\cdots&\cdots&\cdots&\cdots\\
+    14&\cdots&\cdots&\cdots&\cdots&\cdots \\
+    \vdots&\vdots&\vdots&\vdots&\vdots&\vdots
+    
+\end{matrix} \hspace*{3.8cm} \blacktriangle\]
+
+If a number is located in the $i$th row and $j$th column, 
+then the number $\mathbb{N}_{(i,j)}$ should be
+
+\[ \mathbb{N}_{(i,j)} = \frac{i^2+j^2+2ij-i-3j}{2} \]
+
+Now, we compare this formula to the rectangular array with coordinates:
+
+\[ \begin{matrix}
+    (0,0) & (0,1) & (0,2) & (0,3) & \cdots \\
+    (1,0) & (1,1) & (1,2) & (1,3) & \cdots \\
+    (2,0) & (2,1) & (2,2) & (2,3) & \cdots \\
+    (3,0) & (3,1) & (3,2) & (3,3) & \cdots \\
+    \vdots & \vdots &\vdots &\vdots &\vdots 
+\end{matrix}  \hspace*{3cm} \blacklozenge\]
+
+We found that the difference is that this array starts with
+$0$th row and column, so if we want to apply the formula, we need to
+add 1 to both the number of row and column.
+
+\vspace*{0.3cm}
+Say if a coordinate is (a,b) in the graph $\blacklozenge$, then the number related
+to graph $\blacktriangle$ should be
+
+\begin{align*}
+     (a,b) & \Longrightarrow \frac{(a+1)^2+(b+1)^2+2(a+1)(b+1) -(a+1)-3(b+1)}{2} \\
+     & = \frac{a^2+b^2+3a+b+2ab}{2}
+\end{align*}
+
+In that case, we can define a function $ f: \blacklozenge \rightarrow
+\blacktriangle $, such that
+
+\[ f(x,y) = \frac{x^2+y^2+3x+y+2xy}{2}\]
+
+\vspace*{0.3cm}
+Unsuprisingly, this is exactly the function we want, say that
+
+\[ f: \mathbb{N}\times\mathbb{N} \rightarrow \mathbb{N} 
+\hspace*{0.5cm} f(x,y) = \frac{x^2+y^2+3x+y+2xy}{2}
+\hspace*{0.3cm} ( x,y \in \mathbb{N}) \]
+
+\newpage
+\section*{Problem 5}
+
+\begin{proof}
+
+To Show that $ \vert \mathcal{A}_1 \times \mathcal{B}_1 \vert
+    = \vert \mathcal{A}_2 \times \mathcal{B}_2 \vert $
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+We may think of a function $ h = f \times g :\hspace*{0.3cm} \mathcal{A}_1 \times \mathcal{B}_1  \longrightarrow
+\mathcal{A}_2 \times \mathcal{B}_2 \hspace*{0.3cm} \text{such that}$
+
+
+\[ h(a,b) = ( f(a),g(b)) \hspace*{0.3cm} \text{where} 
+\hspace*{0.3cm} a \in \mathcal{A}_1 , b \in \mathcal{B}_1\]
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+$\bullet$ \textbf{Firstly, to show the function is injective:}
+
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+Suppose $\exists x_1, x_2 \in \mathcal{A}_1$ and $y_1, y_2 
+\in \mathcal{B}_1 $, such that $ h(x_1,y_1) = h(x_2,y_2)$
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+That is the same as saying $ (f(x_1),g(y_1) ) = (f(x_2),g(y_2))$
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+In order to be true, it satisifies $ f(x_1) = f(x_2) ,  g(y_1) = g(y_2) $
+
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+Since $ f: \mathcal{A}_1 \longrightarrow \mathcal{A}_2 \hspace*{0.3cm}\text{and}
+\hspace*{0.3cm} g: \mathcal{B}_1 \longrightarrow \mathcal{B}_2 \hspace{0,3cm}\text{are both
+bijective functions} $
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+So it says that $ x_1 =x_2$ and $y_1 = y_2$
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+So, $h$ is injective.
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+$\bullet$ \textbf{Secondly, to show the function is surjective:}
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+We may assume that $(x_0,y_0)$ is an arbitary element in $ \mathcal{A}_2
+\times \mathcal{B}_2 $
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+If the function $h$ is bijective, then there will always exists $(x_*,y_*)$, such that
+
+\begin{align*}
+    h(x_*,y_*) &= (x_0,y_0) \\
+    &= (f(x_*),g(y_*))
+\end{align*}
+
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+Since $ f: \mathcal{A}_1 \longrightarrow \mathcal{A}_2 \hspace*{0.3cm}\text{and}
+\hspace*{0.3cm} g: \mathcal{B}_1 \longrightarrow \mathcal{B}_2 \hspace{0,3cm}\text{are both
+bijective functions} $
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+So, there will always have $x_*, y_*$ such that $x_* \mapsto x_0 , y_* \mapsto y_0 $
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+In this way, $h$ is surjective.
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+$\bullet$ \textbf{Conclusion:}
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+Since I have proved that $h$ is both injective and surjective, so $h$ is bijective
+
+\vspace*{0.3cm}
+\hspace*{1.2cm}
+In other words, we have proved that $ \vert \mathcal{A}_1 \times \mathcal{B}_1 \vert
+= \vert \mathcal{A}_2 \times \mathcal{B}_2 \vert $
+
+
+\end{proof}
+
+\newpage
+\section*{Problem 6}
+
+\begin{proof}
+    In order to show $ \vert \mathbb{N} \vert = \vert \mathbb{Q} \vert $, we can prove the folowing
+    two inequalities:
+
+    \begin{align}
+        \vert \mathbb{N} \vert & \leq \vert \mathbb{Q} \vert \\
+        \vert \mathbb{Q} \vert & \leq \vert \mathbb{N} \vert 
+    \end{align}
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    $\bullet$ We may think of a function: $ f: \mathbb{N} \longrightarrow \mathbb{Q}$ such that
+    
+
+    \begin{equation*}
+        f(x)=
+            \begin{cases}
+                \frac{1}{x} & \text{if } x \neq 0\\
+                0 & \text{if } x = 0
+            \end{cases}
+        \end{equation*}
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    Clearly, is this an injective function, because the $f$ is strictly increasing.
+    
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So, if $f(x_1)=f(x_2)$, it must imply that $x_1 = x_2$.
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So by the property of sets and functions, we say that 
+    $ \vert \mathbb{N} \vert \leq \vert \mathbb{Q} \vert$ is true.
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    $\bullet$ Now, think of a function $g$ that takes a rational number $p$ as input, say
+
+    \[ p = \frac{a}{b} \hspace*{0.3cm} \text{where} \hspace*{0.3cm} a,b \in \mathbb{Z}, \hspace*{0.3cm} b \neq 0 \]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    And let our output to be a 2-D array with coordinates $a,b$. Then define:
+
+    \[ g: \mathbb{Q} \longrightarrow \mathbb{Z} \times \mathbb{Z},
+    \hspace*{0.4cm} g \left( \frac{a}{b} \right) = (a,b) \]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    By the property of rational numbers, if $p_1 \neq p_2$, then
+
+    \[ \left( \frac{a_1}{b_1} \right) \neq \left( \frac{a_2}{b_2} \right) \]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So, $a_1 = a_2$ and $b_1 = b_2$ cannot be true at the same time, that is 
+
+    \[ (a_1,b_1) \neq (a_2,b_2) \]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So, the function $g$ is also injective. That is, $ \vert \mathbb{Q}\vert \leq \vert \mathbb{Z} \times \mathbb{Z} \vert $
+
+    \vspace*{1cm} 
+    \hspace*{1cm}
+    Now let's show that $\vert \mathbb{Z} \times \mathbb{Z} \vert 
+    = \vert \mathbb{N} \vert $
+    by constructing another function $ \mathbb{Z} \times \mathbb{Z} 
+    \mapsto \mathbb{N} $
+
+    \vspace*{1cm}
+    \hspace*{1cm}
+    Think of a 2-D coordinates with all integer pairs $(a,b)$,
+    take a look at a very small range.
+
+    \[ \begin{matrix}
+        (-1,1) & (0,1) & (1,1) \\
+        (-1,0) & (0,0) & (1,0) \\
+        (-1,-1) & (0,-1) & (1,-1)
+    \end{matrix} \]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    If an operation starts from $(0,0)$ and takes vertical/horizontal moves
+    as follows:
+
+    \[ \begin{matrix}
+        & & & &\cdots &\longleftarrow & (2,2) \\
+        & & & & & & \uparrow \\
+        (-1,1) &\longleftarrow &(0,1) &\longleftarrow & (1,1)& &(2,1) \\
+        \downarrow& & & &\uparrow& &\uparrow \\
+        (-1,0) & & (0,0) &\longrightarrow & (1,0) & & (2,0)\\
+        \downarrow& & & & & &\uparrow\\
+        (-1,-1) &\longrightarrow &(0,-1) & \longrightarrow&(1,-1) & \longrightarrow&(2,-1)
+    \end{matrix} \]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    Now we consider a sequence $\mathcal{C}(a,b) = x$, $x \in \mathbb{N}$,
+     $a,b \in \mathbb{Z}$ and let $x$ to be the total times 
+     
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    of operations that starts from
+     $(0,0)$ and ends with $(a,b)$
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    For example, $\mathcal{C}(0,0) = 0$, $\mathcal{C}(1,1) = 2$
+    , $\mathcal{C}(2,-1) = 9$
+
+    
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    Then we can define our function to be:
+
+    \[ \mathcal{C}: \mathbb{Z}\times \mathbb{Z} \longrightarrow
+    \mathbb{N}, \hspace*{0.3cm} \mathcal{C}(a,b) = x \]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    Since we had proved in class that $\vert \mathbb{Z} \vert 
+    = \vert \mathbb{N} \vert $ by consturcting a bijective function
+
+    \[ h: \mathbb{N} \mapsto \mathbb{Z}, \hspace*{0.3cm} \text{such that} \]
+    
+    
+    \begin{equation*}
+        h(x)=
+            \begin{cases}
+                2x & \text{if } x \geq 0\\
+                -(2x+1) & \text{if } x < 0
+            \end{cases}
+        \end{equation*}
+    
+    
+    \vspace*{1cm}
+    \hspace*{1cm}
+    So, $\mathcal{C}(a,b)$ is bijective, because each different input
+    maps to a unique output.
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    And for all $x\in \mathbb{N}$, there always exists an input that maps to it.
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So, it is true that $\vert \mathbb{Z}\vert \times \vert \mathbb{Z} \vert = \vert \mathbb{N} \vert$
+
+
+
+    \vspace*{1cm}
+    \hspace*{1cm}
+    So, it applies that $\vert \mathbb{Q}\vert \leq \vert \mathbb{Z} \times \mathbb{Z} \vert
+    = \vert \mathbb{N} \vert $
+    
+    \vspace*{1cm}
+    \hspace*{1cm}
+    $\bullet$ By now, we proved that there exists an injection between two directions. 
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So both the inequalities $(1), (2)$ are correct, that is $\vert \mathbb{N} \vert =
+    \vert \mathbb{Q} \vert $.
+
+\end{proof}
+
+\newpage
+\section*{Problem 8}
+
+\subsection*{First proof: $\vert \mathcal{A} \vert \leq \vert 2^{\mathcal{A}} \vert$}
+
+\begin{proof}
+    Suppose $\vert \mathcal{A} \vert = n$, and $a_1, a_2, \cdots, a_n$ are the elements in $\mathcal{A}$, 
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    We can construct a function $f$ with $m$ variables, which takes $m$ elements from
+    $\mathcal{A}$, 
+    
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    $(0 \leq m \leq n)$ as input, and a set containing these elements as output, 
+
+    \[ \text{Suppose} \hspace*{0.3cm} \vec a = \begin{pmatrix}
+        a_1 \\
+        a_2 \\
+        \vdots \\
+        a_m
+    \end{pmatrix} , \hspace*{0.2cm} \text{then define} \hspace*{0.2cm} 
+    f^{m}(\vec{a}) = \lbrace a_1, a_2, \cdots, a_m \rbrace \]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    We need to show that for any $m$, $f^m$ is injective.
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    Suppose $\vec{a} = \vec{b}$, then we know that the vectors $\vec{a},\vec{b}$ where
+
+    \[ \vec a = \begin{pmatrix}
+        a_1 \\
+        a_2 \\
+        \vdots \\
+        a_m
+    \end{pmatrix} , \vec b = \begin{pmatrix}
+        b_1 \\
+        b_2 \\
+        \vdots \\
+        b_m
+    \end{pmatrix} \hspace*{0.2cm} \text{must be equal}\]
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So the $i$th coordinates $( 1 \leq i \leq m)$ of $\vec a,\vec b$ are equal
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So, $ a_1 = b_1; a_2 = b_2; \ldots; a_m = b_m $
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    Then, it's also true that $ f^m(\vec a) = f^m(\vec b)$, so the function is injective. In this case
+
+    \[ \vert \mathcal{A} \vert \leq \vert 2^{\mathcal{A}} \vert \]
+
+\end{proof}
+
+\section*{Second Proof:}
+
+\begin{proof}
+    
+    Let's think of a set $\mathcal{A}$ with specific elements, say $\mathcal{A}
+    = \lbrace 1, 2, 3, 4, 5 \rbrace$, then
+
+    \[ \mathcal{A}_1 = \lbrace 1,2,3\rbrace ; \mathcal{A}_2 = \lbrace 4,5\rbrace; 
+    \mathcal{A}_3 = \lbrace 1,2,4,5 \rbrace; \mathcal{A}_4 = \lbrace 4,5 \rbrace \]
+    
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    are subsets of $\mathcal{A}$, but not all of them are listed.
+    Now, we can define a function $ g : a \mapsto \mathcal{A}_a $
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    For example: $ g(1) = \mathcal{A}_1 = \lbrace 1, 2, 3 \rbrace $, $ g(3) = 
+    \lbrace 1, 2, 4 ,5 \rbrace $ and so on.
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    We can define a subset of $\mathcal{A}$ to be $\mathcal{U}$, such that $ \mathcal{U} :
+    \lbrace x \in \mathcal{A} : x \notin g(x) \rbrace  $
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So, let's take a look at the previous example, $ 1 \notin \mathcal{U} $ because
+    $ 1 \notin g(1) $. Then We say 1 is $\textit{non-bounded}$
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    $ 2 \in \mathcal{U} $ because $ 2 \notin g(2) = \lbrace 4, 5 \rbrace $.
+     Then we say 2 is $\textit{bounded}$
+
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    Now, let's construct a bijection between $ \mathcal{A} $ and $2^{\mathcal{A}}$
+
+    \newpage
+    \hspace*{1cm}
+    Suppose $ \lambda $
+    is $bounded$, then $\lambda \in \mathcal{U}$, that contradicts to the definition
+    
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    Suppose  $\lambda$ is $\textit{non-bounded}$, then it means that $\lambda$ should be in $\mathcal{U}$
+    instead
+    
+    
+    \vspace*{0.3cm}
+    \hspace*{1cm}
+    So the above give us contradiction, thus the function cannot be bijective, ie 
+
+    \[ \vert \mathcal{A} \vert < \vert 2^{\mathcal{A}} \vert \]
+    
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+\end{document}
